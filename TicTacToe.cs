@@ -1,10 +1,12 @@
-﻿// Last Modified By:    
-// Last Modified Date:  February 7, 2021
+﻿// Last Modified By:    Katherine Bellman
+// Last Modified Date:  June 9 2021
 
+
+//TO DO: fill out header
 // Author:  Kyle Chapman
 // Date:    February 7, 2021
 // Description:
-//  It's a tic-tac-toe game! Is that supposed to be hypenated?
+//  It's a tic-tac-toe game! Is that supposed to be hyphenated?
 //  There are 9 buttons in a 2D array. When clicked, they are assigned
 //  a letter based on whoever's turn it is and disabled.
 
@@ -138,6 +140,13 @@ namespace TicTacToe
             ClearControls(squares);
             // Re-enabled and controls that may be disabled.
             SetControlsEnabled(squares, true);
+
+            //Reset colour buttons
+            foreach (Button squareToColour in squares)
+            {
+                squareToColour.BackColor = buttonReset.BackColor;
+            }
+
             // Ensure that there is no winner.
             isWinner = false;
             // ChangeTurn resets the status label and gives the loser the first turn.
@@ -177,17 +186,39 @@ namespace TicTacToe
         // have the same value - doesn't even matter what the value is
         // as long as it's the same!
         
-            for (int rowCount = 0; rowCount < squares.GetUpperBound(0); rowCount++)
+            for (int rowCount = 0; rowCount <= squares.GetUpperBound(0); rowCount++)
             {
                 // What does "GetUpperBound(0)" mean above?
-
                 // Something to do with squares(rowCount,0), squares(rowCount,1), etc.
+                if (squares[rowCount, 0].Text != String.Empty &&
+                    squares[rowCount, 0].Text == squares[rowCount, 1 ].Text &&
+                    squares[rowCount , 0].Text == squares[rowCount, 2].Text)
+                {
                 // How can we analyze the rows to figure out if someone wins?
                 // When someone wins, set isWinner = true;.
+                    isWinner = true;
+                    //add colour to the row for winner
+                    squares[rowCount, 0].BackColor = Color.Honeydew;
+                    squares[rowCount, 1].BackColor = Color.Honeydew;
+                    squares[rowCount, 2].BackColor = Color.Honeydew;
+                }
             }
 
             // Next, check all columns. This will be done pretty much the same way as the rows.
-            
+            for (int colCount = 0; colCount <= squares.GetUpperBound(0); colCount++)
+            {
+                if (squares[0, colCount].Text != String.Empty &&
+                    squares[0, colCount].Text == squares[1, colCount].Text && 
+                    squares[0, colCount].Text == squares[2, colCount].Text)
+                {
+                    // When someone wins, set isWinner = true;.
+                    isWinner = true;
+                    //add color to the column for winner
+                    squares[0, colCount].BackColor = Color.Honeydew;
+                    squares[1, colCount].BackColor = Color.Honeydew;
+                    squares[2, colCount].BackColor = Color.Honeydew;
+                }
+            }
             // Finally, we have to check the two diagonals.
             // It is not going to save us any work to use loops
             // so let's just do it like this:
@@ -195,13 +226,23 @@ namespace TicTacToe
                 squares[0, 0].Text == squares[1, 1].Text &&
                 squares[0, 0].Text == squares[2, 2].Text)
             {
+                // When someone wins, set isWinner = true;.
                 isWinner = true;
+                //add color to the diagonal for winner
+                squares[0,0].BackColor = Color.Honeydew;
+                squares[1, 1].BackColor = Color.Honeydew;
+                squares[2, 2].BackColor = Color.Honeydew;
             }
             else if(squares[0, 2].Text != String.Empty &&
                 squares[0, 2].Text == squares[1, 1].Text &&
                 squares[0, 2].Text == squares[2, 0].Text)
             {
+                // When someone wins, set isWinner = true;.
                 isWinner = true;
+                //add color to the diagonal for winner
+                squares[0, 2].BackColor = Color.Honeydew;
+                squares[1, 1].BackColor = Color.Honeydew;
+                squares[2, 0].BackColor = Color.Honeydew;
             }
 
             // **************************************************
