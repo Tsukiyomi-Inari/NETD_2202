@@ -244,6 +244,7 @@ namespace TicTacToe
                 squares[1, 1].BackColor = Color.Honeydew;
                 squares[2, 0].BackColor = Color.Honeydew;
             }
+            
 
             // **************************************************
             // Here are some notes about extra stuff you can try.
