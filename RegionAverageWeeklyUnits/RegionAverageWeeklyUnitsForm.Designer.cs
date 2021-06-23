@@ -77,7 +77,7 @@ namespace RegionAverageWeeklyUnits
             this.labelRegion1Prompt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelRegion1Prompt.Name = "labelRegion1Prompt";
             this.labelRegion1Prompt.Size = new System.Drawing.Size(76, 23);
-            this.labelRegion1Prompt.TabIndex = 2;
+            this.labelRegion1Prompt.TabIndex = 4;
             this.labelRegion1Prompt.Text = "Region &1";
             // 
             // labelRegion2Prompt
@@ -85,7 +85,7 @@ namespace RegionAverageWeeklyUnits
             this.labelRegion2Prompt.Location = new System.Drawing.Point(255, 70);
             this.labelRegion2Prompt.Name = "labelRegion2Prompt";
             this.labelRegion2Prompt.Size = new System.Drawing.Size(76, 23);
-            this.labelRegion2Prompt.TabIndex = 3;
+            this.labelRegion2Prompt.TabIndex = 5;
             this.labelRegion2Prompt.Text = "Region &2";
             // 
             // labelRegion3Prompt
@@ -93,7 +93,7 @@ namespace RegionAverageWeeklyUnits
             this.labelRegion3Prompt.Location = new System.Drawing.Point(437, 70);
             this.labelRegion3Prompt.Name = "labelRegion3Prompt";
             this.labelRegion3Prompt.Size = new System.Drawing.Size(76, 23);
-            this.labelRegion3Prompt.TabIndex = 4;
+            this.labelRegion3Prompt.TabIndex = 6;
             this.labelRegion3Prompt.Text = "Region &3";
             // 
             // textBoxRegion1List
@@ -104,7 +104,7 @@ namespace RegionAverageWeeklyUnits
             this.textBoxRegion1List.Name = "textBoxRegion1List";
             this.textBoxRegion1List.ReadOnly = true;
             this.textBoxRegion1List.Size = new System.Drawing.Size(139, 224);
-            this.textBoxRegion1List.TabIndex = 5;
+            this.textBoxRegion1List.TabIndex = 7;
             this.regionAverageToolTip.SetToolTip(this.textBoxRegion1List, "Displays the  entered case units for region 1.");
             // 
             // textBoxRegion2List
@@ -115,7 +115,7 @@ namespace RegionAverageWeeklyUnits
             this.textBoxRegion2List.Name = "textBoxRegion2List";
             this.textBoxRegion2List.ReadOnly = true;
             this.textBoxRegion2List.Size = new System.Drawing.Size(139, 224);
-            this.textBoxRegion2List.TabIndex = 6;
+            this.textBoxRegion2List.TabIndex = 8;
             this.regionAverageToolTip.SetToolTip(this.textBoxRegion2List, "Displays the  entered case units for region 2.");
             // 
             // textBoxRegion3List
@@ -126,7 +126,7 @@ namespace RegionAverageWeeklyUnits
             this.textBoxRegion3List.Name = "textBoxRegion3List";
             this.textBoxRegion3List.ReadOnly = true;
             this.textBoxRegion3List.Size = new System.Drawing.Size(139, 224);
-            this.textBoxRegion3List.TabIndex = 7;
+            this.textBoxRegion3List.TabIndex = 9;
             this.regionAverageToolTip.SetToolTip(this.textBoxRegion3List, "Displays the  entered case units for region 3.");
             // 
             // textBoxRegion1AverageOutput
@@ -135,7 +135,7 @@ namespace RegionAverageWeeklyUnits
             this.textBoxRegion1AverageOutput.Name = "textBoxRegion1AverageOutput";
             this.textBoxRegion1AverageOutput.ReadOnly = true;
             this.textBoxRegion1AverageOutput.Size = new System.Drawing.Size(139, 31);
-            this.textBoxRegion1AverageOutput.TabIndex = 8;
+            this.textBoxRegion1AverageOutput.TabIndex = 10;
             this.textBoxRegion1AverageOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.regionAverageToolTip.SetToolTip(this.textBoxRegion1AverageOutput, "Displays the total average for region 1.");
             // 
@@ -145,7 +145,7 @@ namespace RegionAverageWeeklyUnits
             this.textBoxRegion2AverageOutput.Name = "textBoxRegion2AverageOutput";
             this.textBoxRegion2AverageOutput.ReadOnly = true;
             this.textBoxRegion2AverageOutput.Size = new System.Drawing.Size(139, 31);
-            this.textBoxRegion2AverageOutput.TabIndex = 9;
+            this.textBoxRegion2AverageOutput.TabIndex = 11;
             this.textBoxRegion2AverageOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.regionAverageToolTip.SetToolTip(this.textBoxRegion2AverageOutput, "Displays the total average for region 2.");
             // 
@@ -155,7 +155,7 @@ namespace RegionAverageWeeklyUnits
             this.textBoxRegion3AverageOutput.Name = "textBoxRegion3AverageOutput";
             this.textBoxRegion3AverageOutput.ReadOnly = true;
             this.textBoxRegion3AverageOutput.Size = new System.Drawing.Size(139, 31);
-            this.textBoxRegion3AverageOutput.TabIndex = 10;
+            this.textBoxRegion3AverageOutput.TabIndex = 12;
             this.textBoxRegion3AverageOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.regionAverageToolTip.SetToolTip(this.textBoxRegion3AverageOutput, "Displays the total average for region 3.");
             // 
@@ -165,7 +165,7 @@ namespace RegionAverageWeeklyUnits
             this.textBoxTotalOveralAverageOutput.Name = "textBoxTotalOveralAverageOutput";
             this.textBoxTotalOveralAverageOutput.ReadOnly = true;
             this.textBoxTotalOveralAverageOutput.Size = new System.Drawing.Size(510, 31);
-            this.textBoxTotalOveralAverageOutput.TabIndex = 11;
+            this.textBoxTotalOveralAverageOutput.TabIndex = 13;
             this.textBoxTotalOveralAverageOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.regionAverageToolTip.SetToolTip(this.textBoxTotalOveralAverageOutput, "Displays the average out of all three regions.");
             // 
@@ -174,18 +174,18 @@ namespace RegionAverageWeeklyUnits
             this.buttonEnter.Location = new System.Drawing.Point(35, 468);
             this.buttonEnter.Name = "buttonEnter";
             this.buttonEnter.Size = new System.Drawing.Size(139, 33);
-            this.buttonEnter.TabIndex = 12;
+            this.buttonEnter.TabIndex = 14;
             this.buttonEnter.Text = "&Enter";
             this.regionAverageToolTip.SetToolTip(this.buttonEnter, "Click to input the current case total.");
             this.buttonEnter.UseVisualStyleBackColor = true;
-            this.buttonEnter.Click += new System.EventHandler(this.EnterClick);
+            this.buttonEnter.Click += new System.EventHandler(this.Calculate_EnterClick);
             // 
             // buttonReset
             // 
             this.buttonReset.Location = new System.Drawing.Point(221, 468);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(139, 33);
-            this.buttonReset.TabIndex = 13;
+            this.buttonReset.TabIndex = 15;
             this.buttonReset.Text = "&Reset";
             this.regionAverageToolTip.SetToolTip(this.buttonReset, "Resets the application.");
             this.buttonReset.UseVisualStyleBackColor = true;
@@ -196,7 +196,7 @@ namespace RegionAverageWeeklyUnits
             this.buttonExit.Location = new System.Drawing.Point(406, 468);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(139, 33);
-            this.buttonExit.TabIndex = 14;
+            this.buttonExit.TabIndex = 16;
             this.buttonExit.Text = "E&xit";
             this.regionAverageToolTip.SetToolTip(this.buttonExit, "Exits application.");
             this.buttonExit.UseVisualStyleBackColor = true;
@@ -208,7 +208,7 @@ namespace RegionAverageWeeklyUnits
             this.labelDayCount.Location = new System.Drawing.Point(489, 20);
             this.labelDayCount.Name = "labelDayCount";
             this.labelDayCount.Size = new System.Drawing.Size(54, 23);
-            this.labelDayCount.TabIndex = 15;
+            this.labelDayCount.TabIndex = 3;
             this.labelDayCount.Text = "Day 1";
             // 
             // RegionAverageWeeklyUnitsForm

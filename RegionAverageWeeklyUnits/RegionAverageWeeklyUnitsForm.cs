@@ -4,6 +4,7 @@
 //Program: Region Average Weekly Units
 //Program Description: Accepts 7 whole number inputs to calculate the average of inputs for 3 regions. And a final total average of the three regions.
 //
+//Last Modified : June 23rd 2021
 //Date: June 27th 2021
 //
 
@@ -21,30 +22,68 @@ namespace RegionAverageWeeklyUnits
 {
     public partial class RegionAverageWeeklyUnitsForm : Form
     {
-        //Declare class-level variables.
-        int currentDay = 1;
-        int totalCases = 0;
-        int currentRegion = 1;
+        //Declare class-level variables
+        int currentDay = 0;
+        int currentRegion = 0;
+        const int NumberOfRegions = 3;
+        const int NumberOfDays = 7;
 
+        //This is the 2D array of all cases recorded
+        int[,] cases = new int[NumberOfRegions, NumberOfDays];
+
+        //These arrays are arrays of controls on the form
+        TextBox[] textBoxCaseLists;
+        TextBox[] textBoxAverages;
+
+
+        /// <summary>
+        /// Initializes the form and the arrays of controls.
+        /// </summary>
         public RegionAverageWeeklyUnitsForm()
         {
             InitializeComponent();
+
+            textBoxCaseLists = new TextBox[] { textBoxRegion1List, textBoxRegion2List, textBoxRegion3List};
+            textBoxAverages = new TextBox[] { textBoxRegion1AverageOutput, textBoxRegion2AverageOutput, textBoxRegion3AverageOutput};
         }
 
         #region "Event Handlers"
-
+        /// <summary>
+        /// On form load the default settings are applied.
+        /// </summary>
         private void RegionAverageWeeklyUnitsForm_Load(object sender, EventArgs e)
         {
+
             SetDefaults();
         }
 
         //Enter button Event handler
-        private void EnterClick(object sender, EventArgs e)
+        private void Calculate_EnterClick(object sender, EventArgs e)
         {
-            //Declare constant representing the number of days
-            const int NumberOfDays = 7;
-            //Declare variable to store user's (numeric) last entry
+            //Declare a variable to store the users last (numeric) input
             int enteredCases;
+
+            //If contents of text box are a number..
+            if (int.TryParse(textBoxCasesInput.Text, out enteredCases))
+            {
+                //If contents are in valid range (positive)
+                if (enteredCases > 0 && enteredCases <= int.MaxValue)
+                {
+                   
+                }
+                //Contents not in range - display error to user
+                else
+                {
+                    MessageBox.Show("Your entry must be between 0 and " + int.MaxValue, "Entry Error!");
+                    textBoxCasesInput.SelectAll();
+                    textBoxCasesInput.Focus();
+                }
+            }
+            //Contents not whole number - display error to user
+            else
+            {
+                MessageBox.Show("Your entry must be a whole number.", "Entry Error!");
+            }
         }
 
         /// <summary>
@@ -67,26 +106,29 @@ namespace RegionAverageWeeklyUnits
 
         #region "Functions"
 
-        private void SetDefaults()
+        public void SetDefaults()
         {
-            //Clear all input controls
+            //Clear all input and output controls
             textBoxCasesInput.Clear();
-
-            //Clear all output controls
+            textBoxRegion1List.Clear();
+            textBoxRegion2List.Clear();
+            textBoxRegion3List.Clear();
+    //TODO:Do I need the region Average Outputs cleared here? or not? 
             textBoxRegion1AverageOutput.Clear();
             textBoxRegion2AverageOutput.Clear();
             textBoxRegion3AverageOutput.Clear();
-
 
             //Re-enable any controls that could be disabled
             textBoxCasesInput.Enabled = true;
             buttonEnter.Enabled = true;
 
-            //Reset values of class-level variables
-            currentDay = 1;
-            totalCases = 0;
-            currentRegion = 1;
+            //Reset the values of class-level variables
+            currentDay = 0;
+            currentRegion = 0;
 
+            //Set displayed day back to default
+            labelDayCount.Text = "Day" + currentDay + 1;
+            
             //Set the focus
             textBoxCasesInput.Focus();
         }
