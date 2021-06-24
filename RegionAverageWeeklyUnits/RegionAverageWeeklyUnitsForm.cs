@@ -103,21 +103,33 @@ namespace RegionAverageWeeklyUnits
                         textBoxCasesInput.Clear();
                         textBoxCasesInput.Focus();
 
+                        //increase the day number label by one
+                        labelDayCount.Text = "Day " + currentDay + 1;
+
                         //if  at region 3, calculate final output
                         if (currentRegion >= NumberOfRegions) 
                         {
                             int allRegionsSubtotal = 0;
-
-
+                            
+                            //Cycle through array for..
+                            for (int count = 0; count < cases.Length; count++) 
+                            {
+                                //add all elements together from cases array
+                                allRegionsSubtotal += cases[NumberOfDays, NumberOfRegions];
+                            }
                             //use the total to calculate total average 
-                            //textBoxTotalOveralAverageOutput.Text = "Overall Average: " + Math.Round();
+                            //NOTE: int data type would not function for equation or rounding. Change to double solved it.
+                            double allRegionAverage = cases.Length / allRegionsSubtotal;
+                            
+                            //Round average to 2 decimal places and display in Overall Average Output text box
+                            textBoxTotalOveralAverageOutput.Text = "Overall Average: " + Math.Round(allRegionAverage, 2);
 
                             //Disable the input text box and calculate button
                             buttonEnter.Enabled = false;
                             textBoxCasesInput.Enabled = false;
                         }
                     }
-                    labelDayCount.Text = "Day " + currentDay + 1;
+                    
                 }
                 //Contents not in range - display error to user
                 else
