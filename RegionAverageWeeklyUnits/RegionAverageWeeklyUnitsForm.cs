@@ -69,7 +69,55 @@ namespace RegionAverageWeeklyUnits
                 //If contents are in valid range (positive)
                 if (enteredCases > 0 && enteredCases <= int.MaxValue)
                 {
-                   
+                    // Add valid case entry to array
+                    cases[currentRegion, currentDay] = enteredCases;
+
+                    // Add the entered case value to appropriate region text box list
+                    textBoxCaseLists[currentRegion].Text += enteredCases + Environment.NewLine;
+
+                    //Increase day by one
+                    currentDay++;
+
+                    //focus to the input text box
+                    textBoxCasesInput.Clear();
+                    textBoxCasesInput.Focus();
+
+                    //if day is 7, change to next region
+                    if (currentDay >= NumberOfDays) 
+                    {   
+                        double totalCases = 0;
+                        // calculate average for current region
+                        for(int dayCount = 0; dayCount < NumberOfDays; dayCount++) 
+                        {
+                            
+                            //add to running total for each day for current region
+                            totalCases += cases[currentRegion, dayCount];
+                        }
+                        textBoxAverages[currentRegion].Text = "Average: " + Math.Round(totalCases / NumberOfDays, 2);
+
+                        //reset the day count and move to next region
+                        currentDay = 0;
+                        currentRegion++;
+
+                        //focus to the input text box
+                        textBoxCasesInput.Clear();
+                        textBoxCasesInput.Focus();
+
+                        //if  at region 3, calculate final output
+                        if (currentRegion >= NumberOfRegions) 
+                        {
+                            int allRegionsSubtotal = 0;
+
+
+                            //use the total to calculate total average 
+                            //textBoxTotalOveralAverageOutput.Text = "Overall Average: " + Math.Round();
+
+                            //Disable the input text box and calculate button
+                            buttonEnter.Enabled = false;
+                            textBoxCasesInput.Enabled = false;
+                        }
+                    }
+                    labelDayCount.Text = "Day " + currentDay + 1;
                 }
                 //Contents not in range - display error to user
                 else
@@ -113,10 +161,15 @@ namespace RegionAverageWeeklyUnits
             textBoxRegion1List.Clear();
             textBoxRegion2List.Clear();
             textBoxRegion3List.Clear();
-    //TODO:Do I need the region Average Outputs cleared here? or not? 
+   
             textBoxRegion1AverageOutput.Clear();
             textBoxRegion2AverageOutput.Clear();
             textBoxRegion3AverageOutput.Clear();
+            textBoxTotalOveralAverageOutput.Clear();
+
+            //Clear arrays
+            //ClearControls(textBoxCaseLists);
+            //ClearControls(textBoxAverages);
 
             //Re-enable any controls that could be disabled
             textBoxCasesInput.Enabled = true;
@@ -133,7 +186,10 @@ namespace RegionAverageWeeklyUnits
             textBoxCasesInput.Focus();
         }
 
-        
+
+
+
         #endregion
+
     }
 }

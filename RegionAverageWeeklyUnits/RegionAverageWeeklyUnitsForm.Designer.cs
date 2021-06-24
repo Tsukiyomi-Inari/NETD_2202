@@ -131,33 +131,39 @@ namespace RegionAverageWeeklyUnits
             // 
             // textBoxRegion1AverageOutput
             // 
-            this.textBoxRegion1AverageOutput.Location = new System.Drawing.Point(35, 373);
+            this.textBoxRegion1AverageOutput.Location = new System.Drawing.Point(28, 361);
+            this.textBoxRegion1AverageOutput.MaxLength = 327;
             this.textBoxRegion1AverageOutput.Name = "textBoxRegion1AverageOutput";
             this.textBoxRegion1AverageOutput.ReadOnly = true;
-            this.textBoxRegion1AverageOutput.Size = new System.Drawing.Size(139, 31);
+            this.textBoxRegion1AverageOutput.Size = new System.Drawing.Size(156, 31);
             this.textBoxRegion1AverageOutput.TabIndex = 10;
             this.textBoxRegion1AverageOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.regionAverageToolTip.SetToolTip(this.textBoxRegion1AverageOutput, "Displays the total average for region 1.");
+        
             // 
             // textBoxRegion2AverageOutput
             // 
-            this.textBoxRegion2AverageOutput.Location = new System.Drawing.Point(221, 373);
+            this.textBoxRegion2AverageOutput.Location = new System.Drawing.Point(214, 361);
+            this.textBoxRegion2AverageOutput.MaxLength = 327;
             this.textBoxRegion2AverageOutput.Name = "textBoxRegion2AverageOutput";
             this.textBoxRegion2AverageOutput.ReadOnly = true;
-            this.textBoxRegion2AverageOutput.Size = new System.Drawing.Size(139, 31);
+            this.textBoxRegion2AverageOutput.Size = new System.Drawing.Size(156, 31);
             this.textBoxRegion2AverageOutput.TabIndex = 11;
             this.textBoxRegion2AverageOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.regionAverageToolTip.SetToolTip(this.textBoxRegion2AverageOutput, "Displays the total average for region 2.");
+           
             // 
             // textBoxRegion3AverageOutput
             // 
-            this.textBoxRegion3AverageOutput.Location = new System.Drawing.Point(406, 373);
+            this.textBoxRegion3AverageOutput.Location = new System.Drawing.Point(399, 361);
+            this.textBoxRegion3AverageOutput.MaxLength = 327;
             this.textBoxRegion3AverageOutput.Name = "textBoxRegion3AverageOutput";
             this.textBoxRegion3AverageOutput.ReadOnly = true;
-            this.textBoxRegion3AverageOutput.Size = new System.Drawing.Size(139, 31);
+            this.textBoxRegion3AverageOutput.Size = new System.Drawing.Size(156, 31);
             this.textBoxRegion3AverageOutput.TabIndex = 12;
             this.textBoxRegion3AverageOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.regionAverageToolTip.SetToolTip(this.textBoxRegion3AverageOutput, "Displays the total average for region 3.");
+            
             // 
             // textBoxTotalOveralAverageOutput
             // 
