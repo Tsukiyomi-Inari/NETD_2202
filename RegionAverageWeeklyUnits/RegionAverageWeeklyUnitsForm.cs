@@ -24,9 +24,9 @@ namespace RegionAverageWeeklyUnits
     {
         #region "Declarations"
         //Declare class-level variables
-        int currentDay = 0;                     //counter for nested loop
-        int currentRegion = 0;                  //counter for nested loop                               
-        int dayCountLabel = 1;                 //counter for day count label
+        int currentDay = 0;                     
+        int currentRegion = 0;                                                 
+        int dayCountLabel = 1;                
         const int NumberOfRegions = 3; 
         const int NumberOfDays = 7;
 
@@ -102,6 +102,7 @@ namespace RegionAverageWeeklyUnits
                             //add to running total for each day for current region
                             totalCases += cases[currentRegion, dayCount];
                         }
+                        // calculate and display rounded average for current region
                         textBoxAverages[currentRegion].Text = "Average: " + Math.Round( totalCases / NumberOfDays, 2);
 
                         //reset the day count and move to next region
@@ -110,20 +111,22 @@ namespace RegionAverageWeeklyUnits
 
                         //if  at region 3, calculate final output
                         if (currentRegion >= NumberOfRegions) 
-                        {                          
+                        {    
+                            //Add each input element by iteration through rows and columns of 2d array
                             int allRegionsSubtotal = 0;
-                            for(int outer = cases.GetLowerBound(0); outer < cases.GetUpperBound(0); outer++) 
-                            {
-                               for(int inner = cases.GetLowerBound(1); inner < cases.GetUpperBound(1); inner++) 
+                            for(int outer = cases.GetLowerBound(0); outer <= cases.GetUpperBound(0); outer++) 
+                            {                             
+                               for(int inner = cases.GetLowerBound(1); inner <= cases.GetUpperBound(1); inner++) 
                                 {
+                                    //Obtain all elements at each (row, column )indexes within 2d array 
                                     allRegionsSubtotal += (int)cases.GetValue(outer,inner);
                                 }                            
                             }
-                            //use the total to calculate total average 
+                            //Calculate overall total days to use in calculation
                             double divideBy = NumberOfDays * NumberOfRegions ;                            
                             
                             //Round average to 2 decimal places and display in Overall Average Output text box
-                            textBoxTotalOveralAverageOutput.Text = "Overall Average: " + Math.Round( divideBy / allRegionsSubtotal, 2);
+                            textBoxTotalOveralAverageOutput.Text = "Overall Average: " + Math.Round(allRegionsSubtotal / divideBy , 2);
 
                             //Disable the input text box and calculate button
                             buttonEnter.Enabled = false;
