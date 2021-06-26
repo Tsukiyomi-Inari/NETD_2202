@@ -131,6 +131,7 @@ namespace RegionAverageWeeklyUnits
             // 
             // textBoxRegion1AverageOutput
             // 
+            this.textBoxRegion1AverageOutput.BackColor = System.Drawing.SystemColors.ControlLight;
             this.textBoxRegion1AverageOutput.Location = new System.Drawing.Point(28, 361);
             this.textBoxRegion1AverageOutput.MaxLength = 327;
             this.textBoxRegion1AverageOutput.Name = "textBoxRegion1AverageOutput";
@@ -139,10 +140,10 @@ namespace RegionAverageWeeklyUnits
             this.textBoxRegion1AverageOutput.TabIndex = 10;
             this.textBoxRegion1AverageOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.regionAverageToolTip.SetToolTip(this.textBoxRegion1AverageOutput, "Displays the total average for region 1.");
-        
             // 
             // textBoxRegion2AverageOutput
             // 
+            this.textBoxRegion2AverageOutput.BackColor = System.Drawing.SystemColors.ControlLight;
             this.textBoxRegion2AverageOutput.Location = new System.Drawing.Point(214, 361);
             this.textBoxRegion2AverageOutput.MaxLength = 327;
             this.textBoxRegion2AverageOutput.Name = "textBoxRegion2AverageOutput";
@@ -151,10 +152,10 @@ namespace RegionAverageWeeklyUnits
             this.textBoxRegion2AverageOutput.TabIndex = 11;
             this.textBoxRegion2AverageOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.regionAverageToolTip.SetToolTip(this.textBoxRegion2AverageOutput, "Displays the total average for region 2.");
-           
             // 
             // textBoxRegion3AverageOutput
             // 
+            this.textBoxRegion3AverageOutput.BackColor = System.Drawing.SystemColors.ControlLight;
             this.textBoxRegion3AverageOutput.Location = new System.Drawing.Point(399, 361);
             this.textBoxRegion3AverageOutput.MaxLength = 327;
             this.textBoxRegion3AverageOutput.Name = "textBoxRegion3AverageOutput";
@@ -163,10 +164,10 @@ namespace RegionAverageWeeklyUnits
             this.textBoxRegion3AverageOutput.TabIndex = 12;
             this.textBoxRegion3AverageOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.regionAverageToolTip.SetToolTip(this.textBoxRegion3AverageOutput, "Displays the total average for region 3.");
-            
             // 
             // textBoxTotalOveralAverageOutput
             // 
+            this.textBoxTotalOveralAverageOutput.BackColor = System.Drawing.SystemColors.ControlLight;
             this.textBoxTotalOveralAverageOutput.Location = new System.Drawing.Point(35, 422);
             this.textBoxTotalOveralAverageOutput.Name = "textBoxTotalOveralAverageOutput";
             this.textBoxTotalOveralAverageOutput.ReadOnly = true;
@@ -213,9 +214,11 @@ namespace RegionAverageWeeklyUnits
             this.labelDayCount.AutoSize = true;
             this.labelDayCount.Location = new System.Drawing.Point(489, 20);
             this.labelDayCount.Name = "labelDayCount";
-            this.labelDayCount.Size = new System.Drawing.Size(54, 23);
+            this.labelDayCount.Size = new System.Drawing.Size(58, 23);
             this.labelDayCount.TabIndex = 3;
-            this.labelDayCount.Text = "Day 1";
+            this.labelDayCount.Text = "Day  1";
+            this.labelDayCount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.regionAverageToolTip.SetToolTip(this.labelDayCount, "Current day count for current region.");
             // 
             // RegionAverageWeeklyUnitsForm
             // 
