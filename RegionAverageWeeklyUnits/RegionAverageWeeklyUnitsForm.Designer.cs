@@ -225,7 +225,7 @@ namespace RegionAverageWeeklyUnits
             this.AcceptButton = this.buttonEnter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.buttonExit;
+            this.CancelButton = this.buttonReset;
             this.ClientSize = new System.Drawing.Size(579, 523);
             this.Controls.Add(this.labelDayCount);
             this.Controls.Add(this.buttonExit);

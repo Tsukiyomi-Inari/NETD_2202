@@ -1,0 +1,30 @@
+Desk Check
+
+Author: Katherine Bellman
+Program: RegionAverageWeeklyUnits
+Date: June 27th 2021
+
+INPUT
+-------------------------------
+Region1		Region2		Region3
+-------------------------------
+12			96			169
+5			55			56
+4			11			2
+9			34			48
+13			8			375
+75			89			65
+8			88			47
+	
+	
+OUTPUT
+-------------------------------
+Region1		Region2		Region3
+Average		Average		Average
+-------------------------------
+18			54.43		108.96
+
+	-----------------------
+		Overall Average
+	-----------------------
+			60.43

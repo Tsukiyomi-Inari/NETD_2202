@@ -4,7 +4,7 @@
 //Program: Region Average Weekly Units
 //Program Description: Accepts 7 whole number inputs to calculate the average of inputs for 3 regions. And a final total average of the three regions.
 //
-//Last Modified : June 23rd 2021
+//Last Modified : June 27 2021
 //Date: June 27th 2021
 //
 
@@ -60,7 +60,9 @@ namespace RegionAverageWeeklyUnits
             SetDefaults();
         }
 
-        //Enter button Event handler
+        /// <summary>
+        ///Enter button Event handler
+        ///</summary>
         private void Calculate_EnterClick(object sender, EventArgs e)
         {
             //Declare a variable to store the users last (numeric) input
@@ -70,7 +72,7 @@ namespace RegionAverageWeeklyUnits
             if (int.TryParse(textBoxCasesInput.Text, out enteredCases))
             {
                 //If contents are in valid range (positive)
-                if (enteredCases > 0 && enteredCases <= int.MaxValue)
+                if (enteredCases >= 0 & enteredCases < int.MaxValue)
                 {
                     // Add valid case entry to array
                     cases[currentRegion, currentDay] = enteredCases;
@@ -87,7 +89,6 @@ namespace RegionAverageWeeklyUnits
                     //focus to the input text box
                     textBoxCasesInput.Clear();
                     textBoxCasesInput.Focus();
-
                     //if day is 7, change to next region
                     if (currentDay >= NumberOfDays) 
                     {
@@ -132,12 +133,10 @@ namespace RegionAverageWeeklyUnits
                             buttonEnter.Enabled = false;
                             textBoxCasesInput.Enabled = false;
                         }
-                    }
-
-                    
+                    }                 
                 }
                 //Contents not in range - display error to user
-                else
+                else 
                 {
                     MessageBox.Show("Your entry must be between 0 and " + int.MaxValue, "Entry Error!");
                     textBoxCasesInput.SelectAll();
@@ -148,7 +147,10 @@ namespace RegionAverageWeeklyUnits
             else
             {
                 MessageBox.Show("Your entry must be a whole number.", "Entry Error!");
+                textBoxCasesInput.SelectAll();
+                textBoxCasesInput.Focus();
             }
+
         }
 
         /// <summary>
@@ -171,6 +173,9 @@ namespace RegionAverageWeeklyUnits
 
         #region "Functions"
 
+        /// <summary>
+        /// Resets and clears form and its components
+        /// </summary>
         public void SetDefaults()
         {
             //Clear all input and output controls
@@ -184,10 +189,6 @@ namespace RegionAverageWeeklyUnits
             textBoxRegion3AverageOutput.Clear();
             textBoxTotalOveralAverageOutput.Clear();
 
-            //Clear arrays
-            //ClearControls(textBoxCaseLists);
-            //ClearControls(textBoxAverages);
-
             //Re-enable any controls that could be disabled
             textBoxCasesInput.Enabled = true;
             buttonEnter.Enabled = true;
@@ -197,11 +198,12 @@ namespace RegionAverageWeeklyUnits
             currentRegion = 0;
 
             //Set displayed day back to default
-            labelDayCount.Text = "Day" + dayCountLabel;
+            labelDayCount.Text = "Day" + (dayCountLabel = 1);
             
             //Set the focus
             textBoxCasesInput.Focus();
         }
+
 
         #endregion
 
