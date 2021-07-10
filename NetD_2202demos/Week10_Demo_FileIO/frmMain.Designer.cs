@@ -62,6 +62,11 @@ namespace W8_Collections
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.lblTitleBar = new System.Windows.Forms.Label();
             this.btnExitButton = new System.Windows.Forms.Button();
+            this.cboUnits = new System.Windows.Forms.ComboBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.btnSaveToFile = new System.Windows.Forms.Button();
+            this.btnLoadFromFile = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClones)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDesignation)).BeginInit();
@@ -97,9 +102,10 @@ namespace W8_Collections
             this.dgvClones.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvClones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClones.ShowEditingIcon = false;
-            this.dgvClones.Size = new System.Drawing.Size(911, 222);
+            this.dgvClones.Size = new System.Drawing.Size(813, 222);
             this.dgvClones.TabIndex = 1;
             this.dgvClones.VirtualMode = true;
+            this.dgvClones.SelectionChanged += new System.EventHandler(this.dgvSelectionChange);
             // 
             // colDesignation
             // 
@@ -375,21 +381,56 @@ namespace W8_Collections
             this.lblTitleBar.ForeColor = System.Drawing.Color.Black;
             this.lblTitleBar.Location = new System.Drawing.Point(1, 1);
             this.lblTitleBar.Name = "lblTitleBar";
-            this.lblTitleBar.Size = new System.Drawing.Size(933, 35);
+            this.lblTitleBar.Size = new System.Drawing.Size(835, 35);
             this.lblTitleBar.TabIndex = 3;
-            this.lblTitleBar.Text = "Storm Trooper Inventory";
+            this.lblTitleBar.Text = "Storm Troop Inventory";
             this.lblTitleBar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnExitButton
             // 
             this.btnExitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExitButton.Location = new System.Drawing.Point(848, 505);
+            this.btnExitButton.Location = new System.Drawing.Point(748, 497);
             this.btnExitButton.Name = "btnExitButton";
-            this.btnExitButton.Size = new System.Drawing.Size(75, 34);
+            this.btnExitButton.Size = new System.Drawing.Size(75, 44);
             this.btnExitButton.TabIndex = 4;
             this.btnExitButton.Text = "E&xit";
             this.btnExitButton.UseVisualStyleBackColor = true;
             this.btnExitButton.Click += new System.EventHandler(this.btnExitButton_Click);
+            // 
+            // cboUnits
+            // 
+            this.cboUnits.FormattingEnabled = true;
+            this.cboUnits.Location = new System.Drawing.Point(484, 285);
+            this.cboUnits.Name = "cboUnits";
+            this.cboUnits.Size = new System.Drawing.Size(121, 23);
+            this.cboUnits.TabIndex = 5;
+            this.cboUnits.SelectedIndexChanged += new System.EventHandler(this.cboUnits_SelectedIndexChanged);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // btnSaveToFile
+            // 
+            this.btnSaveToFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveToFile.Location = new System.Drawing.Point(631, 497);
+            this.btnSaveToFile.Name = "btnSaveToFile";
+            this.btnSaveToFile.Size = new System.Drawing.Size(91, 44);
+            this.btnSaveToFile.TabIndex = 6;
+            this.btnSaveToFile.Text = "Save to &File";
+            this.btnSaveToFile.UseVisualStyleBackColor = true;
+            this.btnSaveToFile.Click += new System.EventHandler(this.btnSaveToFile_Click);
+            // 
+            // btnLoadFromFile
+            // 
+            this.btnLoadFromFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoadFromFile.Location = new System.Drawing.Point(514, 497);
+            this.btnLoadFromFile.Name = "btnLoadFromFile";
+            this.btnLoadFromFile.Size = new System.Drawing.Size(91, 44);
+            this.btnLoadFromFile.TabIndex = 7;
+            this.btnLoadFromFile.Text = "&Load from File";
+            this.btnLoadFromFile.UseVisualStyleBackColor = true;
+            this.btnLoadFromFile.Click += new System.EventHandler(this.btnLoadFromFile_Click);
             // 
             // frmMain
             // 
@@ -397,14 +438,17 @@ namespace W8_Collections
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(935, 558);
+            this.ClientSize = new System.Drawing.Size(837, 553);
+            this.Controls.Add(this.btnLoadFromFile);
+            this.Controls.Add(this.btnSaveToFile);
+            this.Controls.Add(this.cboUnits);
             this.Controls.Add(this.btnExitButton);
             this.Controls.Add(this.lblTitleBar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvClones);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Storm Trooper Inventory";
+            this.Text = "StormTroop Inventory";
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClones)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -447,6 +491,11 @@ namespace W8_Collections
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Label lblTitleBar;
         private System.Windows.Forms.Button btnExitButton;
+        private System.Windows.Forms.ComboBox cboUnits;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button btnSaveToFile;
+        private System.Windows.Forms.Button btnLoadFromFile;
     }
 }
 

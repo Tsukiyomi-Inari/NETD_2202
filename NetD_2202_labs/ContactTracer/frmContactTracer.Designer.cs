@@ -29,191 +29,244 @@ namespace ContactTracer
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.checkBoxConstacted = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactTracerForm));
+            this.lblFirstName = new System.Windows.Forms.Label();
+            this.txbFirstName = new System.Windows.Forms.TextBox();
+            this.txbLastName = new System.Windows.Forms.TextBox();
+            this.lblLastName = new System.Windows.Forms.Label();
+            this.lblEMail = new System.Windows.Forms.Label();
+            this.lblPhoneNumber = new System.Windows.Forms.Label();
+            this.chkContacted = new System.Windows.Forms.CheckBox();
+            this.btnEnter = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.mtbEMail = new System.Windows.Forms.MaskedTextBox();
+            this.mtbPhoneNumber = new System.Windows.Forms.MaskedTextBox();
+            this.dgvContactList = new System.Windows.Forms.DataGridView();
+            this.grbContactInput = new System.Windows.Forms.GroupBox();
+            this.ttipContactTracer = new System.Windows.Forms.ToolTip(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContactList)).BeginInit();
+            this.grbContactInput.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // lblFirstName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(200, 51);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "First Name:";
+            this.lblFirstName.Location = new System.Drawing.Point(67, 33);
+            this.lblFirstName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFirstName.Name = "lblFirstName";
+            this.lblFirstName.Size = new System.Drawing.Size(98, 23);
+            this.lblFirstName.TabIndex = 0;
+            this.lblFirstName.Text = "&First Name:";
+            this.lblFirstName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox1
+            // txbFirstName
             // 
-            this.textBox1.Location = new System.Drawing.Point(304, 44);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(253, 31);
-            this.textBox1.TabIndex = 1;
+            this.txbFirstName.Location = new System.Drawing.Point(167, 30);
+            this.txbFirstName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txbFirstName.Name = "txbFirstName";
+            this.txbFirstName.Size = new System.Drawing.Size(253, 31);
+            this.txbFirstName.TabIndex = 0;
+            this.ttipContactTracer.SetToolTip(this.txbFirstName, "Input field for contact first name");
             // 
-            // textBox2
+            // txbLastName
             // 
-            this.textBox2.Location = new System.Drawing.Point(304, 85);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(253, 31);
-            this.textBox2.TabIndex = 3;
+            this.txbLastName.Location = new System.Drawing.Point(167, 72);
+            this.txbLastName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txbLastName.Name = "txbLastName";
+            this.txbLastName.Size = new System.Drawing.Size(253, 31);
+            this.txbLastName.TabIndex = 2;
+            this.ttipContactTracer.SetToolTip(this.txbLastName, "Input field for contact last name");
             // 
-            // label2
+            // lblLastName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(200, 91);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 23);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Last Name:";
+            this.lblLastName.Location = new System.Drawing.Point(67, 75);
+            this.lblLastName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLastName.Name = "lblLastName";
+            this.lblLastName.Size = new System.Drawing.Size(98, 23);
+            this.lblLastName.TabIndex = 2;
+            this.lblLastName.Text = "&Last Name:";
+            this.lblLastName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label3
+            // lblEMail
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(176, 133);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(123, 23);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Email Address:";
+            this.lblEMail.Location = new System.Drawing.Point(34, 117);
+            this.lblEMail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEMail.Name = "lblEMail";
+            this.lblEMail.Size = new System.Drawing.Size(131, 23);
+            this.lblEMail.TabIndex = 3;
+            this.lblEMail.Text = "E&mail Address:";
+            this.lblEMail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label4
+            // lblPhoneNumber
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(164, 175);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(131, 23);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Phone Number:";
+            this.lblPhoneNumber.Location = new System.Drawing.Point(25, 159);
+            this.lblPhoneNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPhoneNumber.Name = "lblPhoneNumber";
+            this.lblPhoneNumber.Size = new System.Drawing.Size(140, 23);
+            this.lblPhoneNumber.TabIndex = 4;
+            this.lblPhoneNumber.Text = "&Phone Number:";
+            this.lblPhoneNumber.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // checkBoxConstacted
+            // chkContacted
             // 
-            this.checkBoxConstacted.AutoSize = true;
-            this.checkBoxConstacted.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBoxConstacted.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.checkBoxConstacted.Location = new System.Drawing.Point(200, 211);
-            this.checkBoxConstacted.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.checkBoxConstacted.Name = "checkBoxConstacted";
-            this.checkBoxConstacted.Size = new System.Drawing.Size(116, 27);
-            this.checkBoxConstacted.TabIndex = 9;
-            this.checkBoxConstacted.Text = "Contacted?";
-            this.checkBoxConstacted.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.checkBoxConstacted.UseVisualStyleBackColor = true;
-            this.checkBoxConstacted.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.chkContacted.AutoSize = true;
+            this.chkContacted.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkContacted.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.chkContacted.Location = new System.Drawing.Point(67, 192);
+            this.chkContacted.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chkContacted.Name = "chkContacted";
+            this.chkContacted.Size = new System.Drawing.Size(116, 27);
+            this.chkContacted.TabIndex = 5;
+            this.chkContacted.Text = "&Contacted?";
+            this.chkContacted.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.ttipContactTracer.SetToolTip(this.chkContacted, "Checkbox if input has been contacted");
+            this.chkContacted.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnEnter
             // 
-            this.button1.Location = new System.Drawing.Point(347, 677);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 35);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "&Enter";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnEnter.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnEnter.Location = new System.Drawing.Point(347, 606);
+            this.btnEnter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnEnter.Name = "btnEnter";
+            this.btnEnter.Size = new System.Drawing.Size(107, 35);
+            this.btnEnter.TabIndex = 7;
+            this.btnEnter.Text = "&Enter";
+            this.ttipContactTracer.SetToolTip(this.btnEnter, "Add contact input fields to datagrid");
+            this.btnEnter.UseVisualStyleBackColor = false;
+            this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
-            // button2
+            // btnReset
             // 
-            this.button2.Location = new System.Drawing.Point(488, 677);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(107, 35);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "&Reset";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnReset.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnReset.Location = new System.Drawing.Point(485, 606);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(107, 35);
+            this.btnReset.TabIndex = 8;
+            this.btnReset.Text = "&Reset";
+            this.ttipContactTracer.SetToolTip(this.btnReset, "Reset contact input fields");
+            this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
-            // button3
+            // btnExit
             // 
-            this.button3.Location = new System.Drawing.Point(624, 677);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(107, 35);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "E&xit";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnExit.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnExit.Location = new System.Drawing.Point(623, 606);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(107, 35);
+            this.btnExit.TabIndex = 9;
+            this.btnExit.Text = "E&xit";
+            this.ttipContactTracer.SetToolTip(this.btnExit, "Exits Application");
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // maskedTextBox1
+            // mtbEMail
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(304, 130);
-            this.maskedTextBox1.Mask = "_____________@_____._____";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(253, 31);
-            this.maskedTextBox1.TabIndex = 15;
+            this.mtbEMail.Location = new System.Drawing.Point(167, 114);
+            this.mtbEMail.Name = "mtbEMail";
+            this.mtbEMail.Size = new System.Drawing.Size(253, 31);
+            this.mtbEMail.TabIndex = 3;
+            this.ttipContactTracer.SetToolTip(this.mtbEMail, "Input field for contact e-mail");
             // 
-            // maskedTextBox2
+            // mtbPhoneNumber
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(304, 172);
-            this.maskedTextBox2.Mask = "(999) 000-0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(253, 31);
-            this.maskedTextBox2.TabIndex = 16;
+            this.mtbPhoneNumber.Location = new System.Drawing.Point(167, 156);
+            this.mtbPhoneNumber.Mask = "(999) 000-0000";
+            this.mtbPhoneNumber.Name = "mtbPhoneNumber";
+            this.mtbPhoneNumber.Size = new System.Drawing.Size(253, 31);
+            this.mtbPhoneNumber.TabIndex = 4;
+            this.ttipContactTracer.SetToolTip(this.mtbPhoneNumber, "Input field for contact phone number");
             // 
-            // dataGridView1
+            // dgvContactList
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(18, 249);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(707, 410);
-            this.dataGridView1.TabIndex = 17;
+            this.dgvContactList.AllowUserToAddRows = false;
+            this.dgvContactList.AllowUserToDeleteRows = false;
+            this.dgvContactList.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
+            this.dgvContactList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvContactList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvContactList.GridColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvContactList.Location = new System.Drawing.Point(18, 249);
+            this.dgvContactList.MultiSelect = false;
+            this.dgvContactList.Name = "dgvContactList";
+            this.dgvContactList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.dgvContactList.RowHeadersVisible = false;
+            this.dgvContactList.RowTemplate.Height = 25;
+            this.dgvContactList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvContactList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvContactList.ShowEditingIcon = false;
+            this.dgvContactList.Size = new System.Drawing.Size(707, 334);
+            this.dgvContactList.TabIndex = 6;
+            this.ttipContactTracer.SetToolTip(this.dgvContactList, "Inputted contacts datadrid");
+            // 
+            // grbContactInput
+            // 
+            this.grbContactInput.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.grbContactInput.Controls.Add(this.mtbPhoneNumber);
+            this.grbContactInput.Controls.Add(this.mtbEMail);
+            this.grbContactInput.Controls.Add(this.lblPhoneNumber);
+            this.grbContactInput.Controls.Add(this.lblEMail);
+            this.grbContactInput.Controls.Add(this.chkContacted);
+            this.grbContactInput.Controls.Add(this.txbLastName);
+            this.grbContactInput.Controls.Add(this.lblLastName);
+            this.grbContactInput.Controls.Add(this.txbFirstName);
+            this.grbContactInput.Controls.Add(this.lblFirstName);
+            this.grbContactInput.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.grbContactInput.Location = new System.Drawing.Point(144, 11);
+            this.grbContactInput.Name = "grbContactInput";
+            this.grbContactInput.Size = new System.Drawing.Size(457, 226);
+            this.grbContactInput.TabIndex = 0;
+            this.grbContactInput.TabStop = false;
+            this.ttipContactTracer.SetToolTip(this.grbContactInput, "Contact input fields group");
             // 
             // ContactTracerForm
             // 
+            this.AcceptButton = this.btnEnter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 726);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.maskedTextBox2);
-            this.Controls.Add(this.maskedTextBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.checkBoxConstacted);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.CancelButton = this.btnReset;
+            this.ClientSize = new System.Drawing.Size(744, 661);
+            this.Controls.Add(this.dgvContactList);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnReset);
+            this.Controls.Add(this.btnEnter);
+            this.Controls.Add(this.grbContactInput);
             this.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ContactTracerForm";
-            this.Text = "Contact Tacer";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "  Contact Tacer";
+            this.ttipContactTracer.SetToolTip(this, "Contact tacking form application. ");
+            this.Load += new System.EventHandler(this.ContactTracerForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContactList)).EndInit();
+            this.grbContactInput.ResumeLayout(false);
+            this.grbContactInput.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckBox checkBoxConstacted;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label lblFirstName;
+        private System.Windows.Forms.TextBox txbFirstName;
+        private System.Windows.Forms.TextBox txbLastName;
+        private System.Windows.Forms.Label lblLastName;
+        private System.Windows.Forms.Label lblEMail;
+        private System.Windows.Forms.Label lblPhoneNumber;
+        private System.Windows.Forms.CheckBox chkContacted;
+        private System.Windows.Forms.Button btnEnter;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.MaskedTextBox mtbEMail;
+        private System.Windows.Forms.MaskedTextBox mtbPhoneNumber;
+        private System.Windows.Forms.DataGridView dgvContactList;
+        private System.Windows.Forms.GroupBox grbContactInput;
+        private System.Windows.Forms.ToolTip ttipContactTracer;
     }
 }
 
