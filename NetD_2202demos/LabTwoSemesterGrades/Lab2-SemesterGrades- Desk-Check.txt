@@ -1,0 +1,41 @@
+Desk Check for Lab 2 "Katherine Bellman's Grade Calculator"
+
+Reset = Clears all controls
+Calculate = Calculates if valid
+Exit = exits the application
+
+#1
+INPUT     OUT-PUT
+-------------------
+65			C
+87			A
+98			A+
+56			D
+56			D	
+56			D
+87			A
+
+72			B-
+
+
+#2
+INPUT     OUT-PUT
+--------------------
+56				D
+kj	
+87				A
+ui
+
+
+
+** Error message is populated
+
+#3
+INPUT     OUT-PUT
+--------------------
+56				D
+
+
+
+** Error message is populated
+
