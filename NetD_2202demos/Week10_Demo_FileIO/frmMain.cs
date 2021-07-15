@@ -45,7 +45,7 @@ namespace W8_Collections
 
             UpdateUnitsComboBox();
 
-            openFileDialog1.Filter = "CSV Files (*.csv) | *.csv";
+            saveFileDialog1.Filter = "CSV Files (*.csv) | *.csv";
             openFileDialog1.Filter = "CSV Files (*.csv) | *.csv";
         }
 
@@ -157,18 +157,24 @@ namespace W8_Collections
         }
         private void btnSaveToFile_Click(object sender, EventArgs e)
         {
-            String filename = string.Empty;
+            String fileName = string.Empty;
             if (saveFileDialog1.ShowDialog()==DialogResult.OK) 
             {
-                filename = saveFileDialog1.FileName;
+                fileName = saveFileDialog1.FileName;
                 //save the troopers in the file
-                StormTrooper.WriteToFile(Troopers, filename);
+                StormTrooper.WriteToFile(Troopers, fileName);
                 MessageBox.Show("Save was complete", "Save Confirmation", MessageBoxButtons.OK);
             }
         }
         private void btnLoadFromFile_Click(object sender, EventArgs e)
         {
-            String filename = string.Empty;
+            if(openFileDialog1.ShowDialog() == DialogResult.OK) 
+            {
+                Troopers.Clear();
+                //Load form file
+                Troopers = StormTrooper.LoadFromCSV(openFileDialog1.FileName);
+                UpdateUnitsComboBox();
+            }
         }
 
         #endregion

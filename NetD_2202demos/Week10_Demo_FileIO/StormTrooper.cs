@@ -154,9 +154,9 @@ namespace W8_Collections
             return returnValue;
         }
 
-        public static void WriteToFile(List<StormTrooper> inputTroopers, String filename)
+        public static void WriteToFile(List<StormTrooper> inputTroopers, String fileName)
         {
-            FileStream fsWrite = new FileStream(filename, FileMode.Create, FileAccess.Write);
+            FileStream fsWrite = new FileStream(fileName, FileMode.Create, FileAccess.Write);
             StreamWriter sWriter = new StreamWriter(fsWrite);
             sWriter.Write(CreateCSVString(inputTroopers));
             sWriter.Close();
@@ -201,6 +201,67 @@ namespace W8_Collections
             returnString = returnString.Replace(",", ";");
 
             return returnString;
+        }
+       
+        public static List<StormTrooper> LoadFromCSV(String fileName) 
+        {
+            List<StormTrooper> returnTroopers = new List<StormTrooper>();
+
+            FileStream fileRead = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            StreamReader sRead = new StreamReader(fileRead);
+
+            String lineContent;
+            String[] items = new String[7];
+            String[] dateItems = new String[2];
+            StormTrooper st;
+
+            while (!sRead.EndOfStream) 
+            {
+                try 
+                {
+                    lineContent = sRead.ReadLine();
+                    items = new String[7];
+                    items = lineContent.Split(",");
+
+                    st = new StormTrooper();
+                    st.Designation = Convert.ToInt32(items[0]);
+                    st.NickName = items[1];
+                    st.Unit = items[2];
+
+                    dateItems = items[3].Split("-");
+                    st.Born = new DateTime(Convert.ToInt32(dateItems[0]), Convert.ToInt32(dateItems[1]), Convert.ToInt32(dateItems[2]));
+
+                    st.HomeWorld = items[4];
+                    st.Defective = Convert.ToBoolean(items[5]);
+
+                    st.HairColour = ConvertStringToColour(items[6]);
+                    st.EyeColour = ConvertStringToColour(items[7]);
+
+
+                    returnTroopers.Add(st);
+                }
+                catch { }
+            }
+
+            return returnTroopers;
+        }
+
+        private static Color ConvertStringToColour(String color) 
+        {
+            Color returnColor;
+
+            if (color.Contains(";")) 
+            {
+                String[] items = new string[3];
+                items = color.Split(";");
+                returnColor = Color.FromArgb(Convert.ToInt32(items[0]), Convert.ToInt32(items[1]), Convert.ToInt32(items[2]), Convert.ToInt32(items[3]));
+            }
+            else 
+            {
+                returnColor = Color.FromName(color);
+            }
+
+            return returnColor;
         }
         #endregion
 
