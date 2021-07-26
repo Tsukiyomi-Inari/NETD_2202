@@ -144,10 +144,10 @@ namespace W8_Collections
 
         private void dgvSelectionChange(object sender, EventArgs e)
         {
-            if (DGVSelectionOn && dgvClones.SelectedRows.Count > 0)
+           
             {
                 // for testing only
-                //MessageBox.Show(dgvClones.SelectedRows[0].Cells[0].Value.ToString());
+               // MessageBox.Show(dgvClones.SelectedRows[0].Cells[0].Value.ToString());
 
                 StormTrooper st = new StormTrooper();
                 st = StormTrooper.GetTrooperFromDesignation(Troopers, Convert.ToInt32(dgvClones.SelectedRows[0].Cells[0].Value));

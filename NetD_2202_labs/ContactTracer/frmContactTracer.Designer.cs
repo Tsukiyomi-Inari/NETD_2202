@@ -44,13 +44,15 @@ namespace ContactTracer
             this.mtbEMail = new System.Windows.Forms.MaskedTextBox();
             this.mtbPhoneNumber = new System.Windows.Forms.MaskedTextBox();
             this.dgvContactList = new System.Windows.Forms.DataGridView();
-            this.grbContactInput = new System.Windows.Forms.GroupBox();
-            this.ttipContactTracer = new System.Windows.Forms.ToolTip(this.components);
             this.colContacted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grbContactInput = new System.Windows.Forms.GroupBox();
+            this.ttipContactTracer = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvContactList)).BeginInit();
             this.grbContactInput.SuspendLayout();
             this.SuspendLayout();
@@ -195,12 +197,15 @@ namespace ContactTracer
             this.colContacted,
             this.colFirstName,
             this.colLastName,
+            this.colDateTime,
             this.colEMail,
-            this.colPhoneNumber});
+            this.colPhoneNumber,
+            this.colId});
             this.dgvContactList.GridColor = System.Drawing.SystemColors.WindowFrame;
             this.dgvContactList.Location = new System.Drawing.Point(18, 249);
             this.dgvContactList.MultiSelect = false;
             this.dgvContactList.Name = "dgvContactList";
+            this.dgvContactList.ReadOnly = true;
             this.dgvContactList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dgvContactList.RowHeadersVisible = false;
             this.dgvContactList.RowTemplate.Height = 25;
@@ -210,6 +215,73 @@ namespace ContactTracer
             this.dgvContactList.Size = new System.Drawing.Size(707, 334);
             this.dgvContactList.TabIndex = 6;
             this.ttipContactTracer.SetToolTip(this.dgvContactList, "Inputted contacts datadrid");
+            this.dgvContactList.SelectionChanged += new System.EventHandler(this.DvgSelectionChanged);
+            // 
+            // colContacted
+            // 
+            this.colContacted.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colContacted.DataPropertyName = "ContactStatus";
+            this.colContacted.FalseValue = "No";
+            this.colContacted.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colContacted.HeaderText = "Contacted?";
+            this.colContacted.IndeterminateValue = "Yes";
+            this.colContacted.MinimumWidth = 10;
+            this.colContacted.Name = "colContacted";
+            this.colContacted.ReadOnly = true;
+            this.colContacted.ToolTipText = "Column displaying if contacts have been contacted.";
+            // 
+            // colFirstName
+            // 
+            this.colFirstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colFirstName.DataPropertyName = "FirstName";
+            this.colFirstName.HeaderText = "First name";
+            this.colFirstName.MinimumWidth = 12;
+            this.colFirstName.Name = "colFirstName";
+            this.colFirstName.ReadOnly = true;
+            this.colFirstName.ToolTipText = "Contacts First Name Column";
+            // 
+            // colLastName
+            // 
+            this.colLastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colLastName.DataPropertyName = "LastName";
+            this.colLastName.HeaderText = "Last name";
+            this.colLastName.MinimumWidth = 12;
+            this.colLastName.Name = "colLastName";
+            this.colLastName.ReadOnly = true;
+            this.colLastName.ToolTipText = "Contacts Last Name Column";
+            // 
+            // colDateTime
+            // 
+            this.colDateTime.HeaderText = "Date";
+            this.colDateTime.Name = "colDateTime";
+            this.colDateTime.ReadOnly = true;
+            // 
+            // colEMail
+            // 
+            this.colEMail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colEMail.DataPropertyName = "EMailAddress";
+            this.colEMail.HeaderText = "E-Mail";
+            this.colEMail.MinimumWidth = 15;
+            this.colEMail.Name = "colEMail";
+            this.colEMail.ReadOnly = true;
+            // 
+            // colPhoneNumber
+            // 
+            this.colPhoneNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colPhoneNumber.DataPropertyName = "PhoneNumber";
+            this.colPhoneNumber.HeaderText = "Phone Number";
+            this.colPhoneNumber.MinimumWidth = 11;
+            this.colPhoneNumber.Name = "colPhoneNumber";
+            this.colPhoneNumber.ReadOnly = true;
+            this.colPhoneNumber.ToolTipText = "Contacts Phone Number Column";
+            // 
+            // colId
+            // 
+            this.colId.DataPropertyName = "Id";
+            this.colId.HeaderText = "Id";
+            this.colId.Name = "colId";
+            this.colId.ReadOnly = true;
+            this.colId.Visible = false;
             // 
             // grbContactInput
             // 
@@ -230,52 +302,6 @@ namespace ContactTracer
             this.grbContactInput.TabIndex = 0;
             this.grbContactInput.TabStop = false;
             this.ttipContactTracer.SetToolTip(this.grbContactInput, "Contact input fields group");
-            // 
-            // colContacted
-            // 
-            this.colContacted.DataPropertyName = "ContactStatus";
-            this.colContacted.FalseValue = "No";
-            this.colContacted.HeaderText = "Contacted?";
-            this.colContacted.IndeterminateValue = "Yes";
-            this.colContacted.MinimumWidth = 10;
-            this.colContacted.Name = "colContacted";
-            this.colContacted.ReadOnly = true;
-            this.colContacted.ToolTipText = "Column displaying if contacts have been contacted.";
-            // 
-            // colFirstName
-            // 
-            this.colFirstName.DataPropertyName = "FirstName";
-            this.colFirstName.HeaderText = "First name";
-            this.colFirstName.MinimumWidth = 12;
-            this.colFirstName.Name = "colFirstName";
-            this.colFirstName.ReadOnly = true;
-            this.colFirstName.ToolTipText = "Contacts First Name Column";
-            // 
-            // colLastName
-            // 
-            this.colLastName.DataPropertyName = "LastName";
-            this.colLastName.HeaderText = "Last name";
-            this.colLastName.MinimumWidth = 12;
-            this.colLastName.Name = "colLastName";
-            this.colLastName.ReadOnly = true;
-            this.colLastName.ToolTipText = "Contacts Last Name Column";
-            // 
-            // colEMail
-            // 
-            this.colEMail.DataPropertyName = "EMailAddress";
-            this.colEMail.HeaderText = "E-Mail";
-            this.colEMail.MinimumWidth = 15;
-            this.colEMail.Name = "colEMail";
-            this.colEMail.ReadOnly = true;
-            // 
-            // colPhoneNumber
-            // 
-            this.colPhoneNumber.DataPropertyName = "PhoneNumber";
-            this.colPhoneNumber.HeaderText = "Phone Number";
-            this.colPhoneNumber.MinimumWidth = 11;
-            this.colPhoneNumber.Name = "colPhoneNumber";
-            this.colPhoneNumber.ReadOnly = true;
-            this.colPhoneNumber.ToolTipText = "Contacts Phone Number Column";
             // 
             // ContactTracerForm
             // 
@@ -327,8 +353,10 @@ namespace ContactTracer
         private System.Windows.Forms.DataGridViewCheckBoxColumn colContacted;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colLastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEMail;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPhoneNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
     }
 }
 

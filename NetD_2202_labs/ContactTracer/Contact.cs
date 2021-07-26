@@ -24,7 +24,7 @@ namespace ContactTracer
 		//read-only  properties
 		public readonly int Count;
 		public readonly int Id;
-		public readonly DateTime now = DateTime.Now;
+		public readonly DateTime date = DateTime.Now;
 
 	//Public properties
 		public string FirstName { get; set; }
@@ -40,7 +40,7 @@ namespace ContactTracer
 		/// <summary>
 		/// Default Constructor
 		/// </summary>
-		public Contact() { Count++; Id = Count; }
+		public Contact() { Count++; Id = Count;}
 
 		/// <summary>
 		/// Parametrized Constructor
@@ -52,13 +52,13 @@ namespace ContactTracer
 		/// <param name="emailAddress"></param>
 		/// <param name="phoneNumber"></param>
 		/// <param name="contactStatus"></param>
-		public Contact(bool contactStatus,string firstName, string lastName, string emailAddress, string phoneNumber): this() 
+		public Contact(bool contactStatus, string firstName, string lastName, string emailAddress, string phoneNumber): this() 
 		{
 			// From default constructor added via this()
 			Count++;
 			Id = Count;
-            DateTime now = DateTime.Now;
-            DateTime Date = now;
+            date = DateTime.Now;
+            
 
 			// Get/Set input data 
 			ContactStatus = contactStatus;
@@ -87,7 +87,7 @@ namespace ContactTracer
             info += FirstName;
             info += LastName;
             info += DateTime.Now;
-            info += ContactStatus;
+            info += ContactStatus.ToString();
 
 
 			return returnStatus;
@@ -99,11 +99,43 @@ namespace ContactTracer
 		{
 			List<Contact> returnContacts = new List<Contact>();
 			returnContacts.Add(new Contact(false, "(689)289-3453","James", "Grey","James.Grey@gmail.ca"));
-			returnContacts.Add(new Contact (true, "(789)432-5665","Akasha", "Lynn","Akasha.Damned@gmail.ca"));
+			returnContacts.Add(new Contact (true, "(789)432-5665","Akasha", "Lynn", ""));
 
 			return returnContacts;
 		}
 
+		public static Contact GetContactfromid(List<Contact> inputContacts, int id) 
+		{
+			Contact returnContact = new Contact();
+
+			foreach (Contact change in inputContacts) 
+			{
+				if(change.Id == id) 
+				{
+					returnContact = change;
+					break;
+				}
+
+			}
+			return returnContact;
+		}
+
+		/*public static bool ContactExists(List<Contact> inputContacts, int Id)
+		{
+			Boolean returnValue = false;
+			id = ;
+
+			foreach(Contact change in inputContacts) 
+			{
+			
+				if(change.Id == id) 
+				{
+					returnValue = true;
+					return returnValue;
+					break;
+				}
+			}
+		}*/
 
         #endregion
     }

@@ -47,23 +47,49 @@ namespace ContactTracer
             /// need to use validation here via isFormEntryValid()
             try
             {
-                
-                
-                
-                    List<Contact> ConstactList = new List<Contact>();
+                //String variable to hold error messages
+                String errorMessageString = string.Empty;
+
+                List<Contact> ConstactList = new List<Contact>();
 
                 Contact add = new Contact();
-                
-                add.FirstName = txbFirstName.Text.Trim();
-                add.LastName = txbLastName.Text.Trim();
-                add.EMailAddress = mtbEMail.ToString();
-                add.PhoneNumber = mtbPhoneNumber.ToString();
-                add.ContactStatus = chkContacted.Checked;
-                //Check entries before inputting them
-                isFormEntryValid(); 
+                    
+                //Add if valid
+                if (isFormEntryValid())
+                {
+                    //Add if contact doesn't exist
+                    if ((GetContactfromid(ContactList,add.Id)))
+                    {
+                        add.ContactStatus = chkContacted.Checked;
+                        add.FirstName = txbFirstName.Text.Trim();
+                        add.LastName = txbLastName.Text.Trim();
+                        //Convert.ToDateTime(DateTime.Now);
+                        add.EMailAddress = mtbEMail.ToString();
+                        add.PhoneNumber = mtbPhoneNumber.ToString();
 
-                UpdateDataGrid();
-                SetDefaults();
+                        ContactList.Add(add);
+                        UpdateDataGrid();
+                    }
+              /*      //Update existing contact
+                    else 
+                    {
+                        add.ContactStatus = chkContacted.Checked;
+                        add.FirstName = txbFirstName.Text.Trim();
+                        add.LastName = txbLastName.Text.Trim();
+                        //Convert.ToDateTime(DateTime.Now);
+                        add.EMailAddress = mtbEMail.ToString();
+                        add.PhoneNumber = mtbPhoneNumber.ToString();
+
+                        ContactList.(add);
+                        UpdateDataGrid();
+                    } */                 
+                }
+                else 
+                {
+                    MessageBox.Show(errorMessageString , "Errors Found", MessageBoxButtons.OK);
+                }
+                
+                
 
             }
             catch
@@ -87,9 +113,25 @@ namespace ContactTracer
                 Application.Exit();
             }
         }
+        /// <summary>
+        /// I
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DvgSelectionChanged(object sender, EventArgs e)
+        {
+            if (DGVSelectionOn && dgvContactList.SelectedRows.Count > 0) 
+            {
+                Contact change = new Contact();
+                change = Contact.GetContactfromid(ContactList, Convert.ToInt32(dgvContactList.SelectedRows[0].Cells[0].Value));
+                PopulateContacts(change);
+            }
+        }
         #endregion
         #region  FUNCTIONS
-
+        /// <summary>
+        /// 
+        /// </summary>
         private void UpdateDataGrid() 
         {
             DGVSelectionOn = false;
@@ -99,7 +141,10 @@ namespace ContactTracer
             DGVSelectionOn = true;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="contactsList"></param>
         private void PopulateContacts(Contact contactsList)
         {
             try
@@ -111,7 +156,7 @@ namespace ContactTracer
                 chkContacted.Checked = input.ContactStatus;
                 txbFirstName.Text = input.FirstName;
                 txbLastName.Text = input.LastName;
-                DateTime date;
+                DateTime date = DateTime.Now;
                 mtbEMail.Text = input.EMailAddress;
                 mtbPhoneNumber.Text = input.PhoneNumber;
                 
@@ -130,6 +175,9 @@ namespace ContactTracer
             mtbEMail.Clear();
             mtbPhoneNumber.Clear();
             chkContacted.Checked = false;
+            DateTime date = DateTime.Now;
+            
+          
             DGVSelectionOn = true;
 
             txbFirstName.Focus();
@@ -159,20 +207,14 @@ namespace ContactTracer
                 errorMessageString += "Last name must have an input!\n";
             }
 
-            if (mtbEMail is null)
+
+            if (mtbPhoneNumber is null|| mtbEMail is null )
             {
                 returnValue = false;
 
-                errorMessageString += "E-mail must have an input!\n";
+                errorMessageString += "Phone Number or E=mail must have an input!\n";
             }
-
-            if (mtbPhoneNumber is null)
-            {
-                returnValue = false;
-
-                errorMessageString += "Phone Number must have an input!\n";
-            }
-
+            
 
             //first name test
             if (!(isTextBoxLengthText(txbFirstName, 2))) 
@@ -219,9 +261,9 @@ namespace ContactTracer
             }
             return returnValue;
         }
-            #endregion
 
 
+        #endregion
 
-        }
+    }
 }
