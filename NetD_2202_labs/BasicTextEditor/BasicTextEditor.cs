@@ -21,10 +21,8 @@ namespace BasicTextEditor
     {
         #region READ-ONLY VARIABLES
 
-        private bool hasText; //changes from "new"
-        private bool beenSaved; // changes after saved, open (with no modifications)
-        private string workingFileName; //For display in status bar
-
+        private bool hasText = false; //changes from "new"
+              
         #endregion
         public frmBasicTextEditor()
         {
@@ -42,6 +40,7 @@ namespace BasicTextEditor
         {
             saveFileDialog1.Filter = "TXT files (*.txt)|*.txt";
             openFileDialog1.Filter = "TXT files (*.txt)|*.txt";
+            this.Text = "Untitled - Basic Text Editor";
         }
 
   ////////=======CUT/COPY/PASTE/FONT=======/////////
@@ -106,7 +105,26 @@ namespace BasicTextEditor
         /// <param name="e"></param>
         private void menuFileOpen_Click(object sender, EventArgs e)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
             
+
+            if(openFileDialog1.ShowDialog() == DialogResult.OK) 
+            {
+                rtbTextEntry.Clear();
+                
+                FileStream fileRead = new FileStream(Path.GetFullPath(openFileDialog.FileName), FileMode.Open, FileAccess.Read);
+                //StreamReader
+                StreamReader sRead = new StreamReader(fileRead);
+                //Load file
+                rtbTextEntry.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
+               
+                sRead.ReadToEnd();
+                sRead.Close();
+                fileRead.Close();
+
+            }
+            this.Text = Path.GetFileName(openFileDialog.FileName) + " - Basic Text Editor";
+
         }
         /// <summary>
         /// Starts new text document
@@ -117,7 +135,9 @@ namespace BasicTextEditor
         {
             //Clear rich text box to start a new "file"
             rtbTextEntry.Clear();
-            
+            this.Text = "Untitled - Basic Text Editor";
+
+
         }
         /// <summary>
         /// 
@@ -126,15 +146,11 @@ namespace BasicTextEditor
         /// <param name="e"></param>
         private void menuFileSave_Click(object sender, EventArgs e)
         {
+            
 
-            string txtFile = string.Empty;
+            SaveFile(rtbTextEntry, saveFileDialog1.FileName);
+            this.Text = saveFileDialog1.FileName + " - Basic Text Editor";
 
-            if(saveFileDialog1.ShowDialog()== DialogResult.OK) 
-            {
-                txtFile = saveFileDialog1.FileName;
-                //Save document
-             //  rtbTextEntry.
-            }
         }
         /// <summary>
         /// 
@@ -144,7 +160,9 @@ namespace BasicTextEditor
         private void menuFileSaveAs_Click(object sender, EventArgs e)
         {
            
-            //rtbTextEntry.SaveFile(Stream, RichTextBoxStreamType.RichText);
+            SaveFile(rtbTextEntry, saveFileDialog1.FileName);
+            this.Text = saveFileDialog1.FileName + " - Basic Text Editor";
+
         }
         /// <summary>
         /// Closes current document
@@ -154,9 +172,8 @@ namespace BasicTextEditor
         /// <param name="e"></param>
         private void menuFileClose_Click(object sender, EventArgs e)
         {
-            //Close current open file
-            rtbTextEntry.Clear();
-            rtbTextEntry.Focus();
+            //Confirm before close
+            ConfirmClose();
         }
         /// <summary>
         /// Exits application
@@ -168,7 +185,18 @@ namespace BasicTextEditor
             ExitApplication();
         }
         /////============end open/new/save/save-as/close/exit================/////////
+        
+        /// <summary>
+        /// Changes made within Rich Text Box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void rbtTextEntry_Changed(object sender, EventArgs e)
+        {
+            hasText = true;
+        }
         #endregion
+
         #region Menu OPTIONS METHOD
         /// <summary>
         /// Method to close application
@@ -194,19 +222,47 @@ namespace BasicTextEditor
             //activates only (message box) if current open file has changed
 
             // ignore any new and unsaved file while blank
+            //if changes
+            if (hasText == true)
+            {
+                if (MessageBox.Show("Would you like to save the document before closing?", "Notification", MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    this.Close();
+                }
+                else
+                {
+                    //save method call
+
+                    this.Close();
+                }
+
+            }
+
         }
-        public void fileWrite(RichTextBox textBox , string fileName) 
+        /// <summary>
+        /// Write to file
+        /// </summary>
+        /// <param name="textBox"></param>
+        /// <param name="fileName"></param>
+        public void SaveFile(RichTextBox textBox , string fileName) 
         {
+            string txtFile = string.Empty;    
 
-            // FileStream 
-            RichTextBoxStreamType.TextTextOleObjs.ToString();
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK && saveFileDialog1.FileName.Length >0)
+            {
+                txtFile = saveFileDialog1.FileName;
+                //Save document
+                rtbTextEntry.SaveFile(saveFileDialog1.FileName, RichTextBoxStreamType.PlainText);
+                FileStream fsWrite = new FileStream(txtFile, FileMode.Create, FileAccess.Write);
+                StreamWriter sWriter = new StreamWriter(fsWrite);
+                sWriter.Write(rtbTextEntry.Text);
+                sWriter.Close();
+                fsWrite.Close();
+            }
         }
 
-        public void fileRead(RichTextBox textBox, string fileName) 
-        {
-
-        }
 
         #endregion
+
     }
 }

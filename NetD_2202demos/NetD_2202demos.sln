@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ice_Class_Creation", "Ice_C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week10_FileIO", "Week10_Demo_FileIO\Week10_FileIO.csproj", "{AAD667B8-F79B-4CCE-8FD5-D06F92C0BDEC}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week11_Strips", "Week11_Strips\Week11_Strips.csproj", "{2ACD98BD-1159-465E-8AA3-AC9E79A05056}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week12_MDI", "Week12_MDI\Week12_MDI.csproj", "{9727541C-7CBB-42E9-9D87-84316D84881B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{AAD667B8-F79B-4CCE-8FD5-D06F92C0BDEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAD667B8-F79B-4CCE-8FD5-D06F92C0BDEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAD667B8-F79B-4CCE-8FD5-D06F92C0BDEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ACD98BD-1159-465E-8AA3-AC9E79A05056}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ACD98BD-1159-465E-8AA3-AC9E79A05056}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ACD98BD-1159-465E-8AA3-AC9E79A05056}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ACD98BD-1159-465E-8AA3-AC9E79A05056}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9727541C-7CBB-42E9-9D87-84316D84881B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9727541C-7CBB-42E9-9D87-84316D84881B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9727541C-7CBB-42E9-9D87-84316D84881B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9727541C-7CBB-42E9-9D87-84316D84881B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
