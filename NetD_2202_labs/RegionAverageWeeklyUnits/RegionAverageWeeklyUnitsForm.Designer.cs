@@ -85,7 +85,7 @@ namespace RegionAverageWeeklyUnits
             this.labelRegion2Prompt.Location = new System.Drawing.Point(255, 70);
             this.labelRegion2Prompt.Name = "labelRegion2Prompt";
             this.labelRegion2Prompt.Size = new System.Drawing.Size(76, 23);
-            this.labelRegion2Prompt.TabIndex = 5;
+            this.labelRegion2Prompt.TabIndex = 6;
             this.labelRegion2Prompt.Text = "Region &2";
             // 
             // labelRegion3Prompt
@@ -93,7 +93,7 @@ namespace RegionAverageWeeklyUnits
             this.labelRegion3Prompt.Location = new System.Drawing.Point(437, 70);
             this.labelRegion3Prompt.Name = "labelRegion3Prompt";
             this.labelRegion3Prompt.Size = new System.Drawing.Size(76, 23);
-            this.labelRegion3Prompt.TabIndex = 6;
+            this.labelRegion3Prompt.TabIndex = 8;
             this.labelRegion3Prompt.Text = "Region &3";
             // 
             // textBoxRegion1List
@@ -104,7 +104,7 @@ namespace RegionAverageWeeklyUnits
             this.textBoxRegion1List.Name = "textBoxRegion1List";
             this.textBoxRegion1List.ReadOnly = true;
             this.textBoxRegion1List.Size = new System.Drawing.Size(139, 224);
-            this.textBoxRegion1List.TabIndex = 7;
+            this.textBoxRegion1List.TabIndex = 5;
             this.regionAverageToolTip.SetToolTip(this.textBoxRegion1List, "Displays the  entered case units for region 1.");
             // 
             // textBoxRegion2List
@@ -115,7 +115,7 @@ namespace RegionAverageWeeklyUnits
             this.textBoxRegion2List.Name = "textBoxRegion2List";
             this.textBoxRegion2List.ReadOnly = true;
             this.textBoxRegion2List.Size = new System.Drawing.Size(139, 224);
-            this.textBoxRegion2List.TabIndex = 8;
+            this.textBoxRegion2List.TabIndex = 7;
             this.regionAverageToolTip.SetToolTip(this.textBoxRegion2List, "Displays the  entered case units for region 2.");
             // 
             // textBoxRegion3List

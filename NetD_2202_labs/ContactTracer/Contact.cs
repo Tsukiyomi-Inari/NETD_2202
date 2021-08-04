@@ -57,7 +57,7 @@ namespace ContactTracer
 			// From default constructor added via this()
 			Count++;
 			Id = Count;
-            date = DateTime.Now;
+			date = DateTime.Now;
             
 
 			// Get/Set input data 

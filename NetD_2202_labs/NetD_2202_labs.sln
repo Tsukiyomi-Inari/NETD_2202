@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegionAverageWeeklyUnits", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabTwoSemesterGrades", "LabTwoSemesterGrades\LabTwoSemesterGrades.csproj", "{D5CAD21B-7E7D-4F95-8DAE-225D23A9BC98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicTextEditor", "BasicTextEditor\BasicTextEditor.csproj", "{1005C786-8F7A-48D1-B055-666F73D507AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicTextEditor", "BasicTextEditor\BasicTextEditor.csproj", "{1005C786-8F7A-48D1-B055-666F73D507AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MdiFormFinal", "MdiFormFinal\MdiFormFinal.csproj", "{D25C0DF1-9A6E-4BD0-88C7-97397A73CF13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{1005C786-8F7A-48D1-B055-666F73D507AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1005C786-8F7A-48D1-B055-666F73D507AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1005C786-8F7A-48D1-B055-666F73D507AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D25C0DF1-9A6E-4BD0-88C7-97397A73CF13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D25C0DF1-9A6E-4BD0-88C7-97397A73CF13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D25C0DF1-9A6E-4BD0-88C7-97397A73CF13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D25C0DF1-9A6E-4BD0-88C7-97397A73CF13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

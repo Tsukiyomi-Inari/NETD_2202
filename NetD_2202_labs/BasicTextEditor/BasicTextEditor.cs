@@ -6,7 +6,7 @@
  * Description:  Main file for text editor application that users can create, open, edit and save text files (*.txt)
  *                  Functions for copy, cut , paste and exit(application) allow for them to be used within the                          application.
  * 
- * Edit Date: July 26th 2021
+ * Edit Date: August 4th  2021
  */
 
 
@@ -21,7 +21,7 @@ namespace BasicTextEditor
     {
         #region READ-ONLY VARIABLES
 
-        private bool hasText = false; //changes from "new"
+        private bool hasText = false; //changes from "new", "open" and "save"
               
         #endregion
         public frmBasicTextEditor()
@@ -41,9 +41,11 @@ namespace BasicTextEditor
             saveFileDialog1.Filter = "TXT files (*.txt)|*.txt";
             openFileDialog1.Filter = "TXT files (*.txt)|*.txt";
             this.Text = "Untitled - Basic Text Editor";
+            SetDefaults();
         }
 
-  ////////=======CUT/COPY/PASTE/FONT=======/////////
+  ////////=======CUT/COPY/PASTE/FONT/SELECT ALL=======/////////
+
         /// <summary>
         /// Pastes contents from clipboard to rich text box
         /// </summary>
@@ -52,6 +54,7 @@ namespace BasicTextEditor
         private void menuEditPaste_Click(object sender, EventArgs e)
         {
             rtbTextEntry.Paste();
+            hasText = true;
         }
 
         /// <summary>
@@ -62,6 +65,7 @@ namespace BasicTextEditor
         private void menuEditCut_Click(object sender, EventArgs e)
         {
             rtbTextEntry.Cut();
+            hasText = true;
         }
 
         /// <summary>
@@ -81,10 +85,33 @@ namespace BasicTextEditor
         /// <param name="e"></param>
         private void menuEditFont_Change(object sender, EventArgs e)
         {
-            fontDialog1.ShowDialog();
-            rtbTextEntry.Font = fontDialog1.Font;
+            //Check if there is only a partial selection
+            if (rtbTextEntry.SelectedText == RichTextBoxSelectionTypes.MultiChar.ToString()) 
+            {
+                //only change the font for that selection
+                fontDialog1.ShowDialog();
+                rtbTextEntry.SelectionFont = fontDialog1.Font;
+                hasText = true;
+            }
+            else
+            {
+                fontDialog1.ShowDialog();
+                rtbTextEntry.Font = fontDialog1.Font;
+                hasText = true;
+            }
+                        
         }
-    /////////=============end cut/copy/paste/font============//////////////
+        /// <summary>
+        /// S
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void menuEditSelectAll_Click(object sender, EventArgs e)
+        {
+            rtbTextEntry.SelectAll();
+            hasText = true;
+        }
+    /////////=============end cut/copy/paste/font/select all============//////////////
     ///
         /// <summary>
         /// Display About form as dialog box
@@ -99,32 +126,25 @@ namespace BasicTextEditor
 
 /////============OPEN/NEW/SAVE/SAVE-AS/CLOSE/EXIT================/////////
         /// <summary>
-        ///
+        ///Opens file dialog box launches to load a file into rich text box
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void menuFileOpen_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
             
-
-            if(openFileDialog1.ShowDialog() == DialogResult.OK) 
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                rtbTextEntry.Clear();
-                
-                FileStream fileRead = new FileStream(Path.GetFullPath(openFileDialog.FileName), FileMode.Open, FileAccess.Read);
-                //StreamReader
-                StreamReader sRead = new StreamReader(fileRead);
-                //Load file
-                rtbTextEntry.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
+                FileStream fs = new FileStream(openFileDialog1.FileName, FileMode.Open, FileAccess.Read);
+                StreamReader sr = new StreamReader(fs);
+                rtbTextEntry.Text = sr.ReadToEnd();
+                sr.Close();
                
-                sRead.ReadToEnd();
-                sRead.Close();
-                fileRead.Close();
-
+                this.Text = Path.GetFileName(openFileDialog1.FileName) + " - Basic Text Editor";
+                fs.Close();
             }
-            this.Text = Path.GetFileName(openFileDialog.FileName) + " - Basic Text Editor";
 
+            SetDefaults();
         }
         /// <summary>
         /// Starts new text document
@@ -135,20 +155,24 @@ namespace BasicTextEditor
         {
             //Clear rich text box to start a new "file"
             rtbTextEntry.Clear();
+            //Update form title to reflect the new untitled file 
             this.Text = "Untitled - Basic Text Editor";
-
-
+            SetDefaults();
         }
         /// <summary>
-        /// 
+        /// Event handler for 'Save' in the menu strip
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void menuFileSave_Click(object sender, EventArgs e)
         {
-            
 
-            SaveFile(rtbTextEntry, saveFileDialog1.FileName);
+            // does the file alredy exhist in open directory
+
+
+                //Use the save method to save the current progress of opened file
+                SaveFile(rtbTextEntry, saveFileDialog1.FileName);
+            //Set the form name to reflect the saved file name 
             this.Text = saveFileDialog1.FileName + " - Basic Text Editor";
 
         }
@@ -159,8 +183,9 @@ namespace BasicTextEditor
         /// <param name="e"></param>
         private void menuFileSaveAs_Click(object sender, EventArgs e)
         {
-           
+           //save the file with save method
             SaveFile(rtbTextEntry, saveFileDialog1.FileName);
+            //Set the form name to reflect the saved file
             this.Text = saveFileDialog1.FileName + " - Basic Text Editor";
 
         }
@@ -216,23 +241,21 @@ namespace BasicTextEditor
         /// </summary>
         private void ConfirmClose() 
         {
-            //TODO: Finish ConfirmClose method
-            //confirm before close (When New, Open or Exit are executed)
-
-            //activates only (message box) if current open file has changed
-
-            // ignore any new and unsaved file while blank
             //if changes
             if (hasText == true)
             {
                 if (MessageBox.Show("Would you like to save the document before closing?", "Notification", MessageBoxButtons.YesNo) == DialogResult.No)
                 {
+                    SetDefaults();
                     this.Close();
                 }
                 else
                 {
                     //save method call
+                    SaveFile(rtbTextEntry, saveFileDialog1.FileName);
 
+                    //reset changes tracking variable 
+                    SetDefaults();
                     this.Close();
                 }
 
@@ -246,20 +269,36 @@ namespace BasicTextEditor
         /// <param name="fileName"></param>
         public void SaveFile(RichTextBox textBox , string fileName) 
         {
-            string txtFile = string.Empty;    
+            string txtFile = string.Empty;
 
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK && saveFileDialog1.FileName.Length >0)
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK && saveFileDialog1.FileName.Length > 0)
             {
                 txtFile = saveFileDialog1.FileName;
                 //Save document
-                rtbTextEntry.SaveFile(saveFileDialog1.FileName, RichTextBoxStreamType.PlainText);
+                 rtbTextEntry.SaveFile(saveFileDialog1.FileName, RichTextBoxStreamType.PlainText);
                 FileStream fsWrite = new FileStream(txtFile, FileMode.Create, FileAccess.Write);
                 StreamWriter sWriter = new StreamWriter(fsWrite);
                 sWriter.Write(rtbTextEntry.Text);
                 sWriter.Close();
                 fsWrite.Close();
-            }
+
+                //update variable with set defaults for unsaved changes
+
+                SetDefaults();
+             }
+
+
+
         }
+
+        /// <summary>
+        /// Sets has Text to false aka no changes to opened, saved or new document
+        /// </summary>
+        public void SetDefaults()
+        {
+            hasText = false;
+        }
+
 
 
         #endregion

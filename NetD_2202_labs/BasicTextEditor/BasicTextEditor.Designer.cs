@@ -53,6 +53,7 @@ namespace BasicTextEditor
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.menuEditSelectAll = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,7 +69,7 @@ namespace BasicTextEditor
             this.rtbTextEntry.TabIndex = 0;
             this.rtbTextEntry.Text = "";
             this.toolTip1.SetToolTip(this.rtbTextEntry, "Text Editor input space.");
-            this.rtbTextEntry.TextChanged += new System.EventHandler(this.rbtTextEntry_Changed);
+            this.rtbTextEntry.ModifiedChanged += new System.EventHandler(this.rbtTextEntry_Changed);
             // 
             // menuStrip1
             // 
@@ -100,6 +101,7 @@ namespace BasicTextEditor
             this.menuFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F)));
             this.menuFile.Size = new System.Drawing.Size(48, 22);
             this.menuFile.Text = "&File";
+            this.menuFile.ToolTipText = "File Options Menu";
             // 
             // menuFileNew
             // 
@@ -107,8 +109,9 @@ namespace BasicTextEditor
             this.menuFileNew.Name = "menuFileNew";
             this.menuFileNew.ShortcutKeyDisplayString = "";
             this.menuFileNew.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.menuFileNew.Size = new System.Drawing.Size(172, 22);
+            this.menuFileNew.Size = new System.Drawing.Size(180, 22);
             this.menuFileNew.Text = "&New";
+            this.menuFileNew.ToolTipText = "Starts a empty text file";
             this.menuFileNew.Click += new System.EventHandler(this.menuFileNew_Click);
             // 
             // menuFileOpen
@@ -117,8 +120,9 @@ namespace BasicTextEditor
             this.menuFileOpen.Name = "menuFileOpen";
             this.menuFileOpen.ShortcutKeyDisplayString = "";
             this.menuFileOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.menuFileOpen.Size = new System.Drawing.Size(172, 22);
+            this.menuFileOpen.Size = new System.Drawing.Size(180, 22);
             this.menuFileOpen.Text = "&Open";
+            this.menuFileOpen.ToolTipText = "Open a file";
             this.menuFileOpen.Click += new System.EventHandler(this.menuFileOpen_Click);
             // 
             // menuFileSave
@@ -127,8 +131,9 @@ namespace BasicTextEditor
             this.menuFileSave.Name = "menuFileSave";
             this.menuFileSave.ShortcutKeyDisplayString = "";
             this.menuFileSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.menuFileSave.Size = new System.Drawing.Size(172, 22);
+            this.menuFileSave.Size = new System.Drawing.Size(180, 22);
             this.menuFileSave.Text = "&Save";
+            this.menuFileSave.ToolTipText = "Save current file";
             this.menuFileSave.Click += new System.EventHandler(this.menuFileSave_Click);
             // 
             // menuFileSaveAs
@@ -136,30 +141,33 @@ namespace BasicTextEditor
             this.menuFileSaveAs.Image = global::BasicTextEditor.Properties.Resources.Iconsmind_Outline_Save;
             this.menuFileSaveAs.Name = "menuFileSaveAs";
             this.menuFileSaveAs.ShortcutKeyDisplayString = "";
-            this.menuFileSaveAs.Size = new System.Drawing.Size(172, 22);
+            this.menuFileSaveAs.Size = new System.Drawing.Size(180, 22);
             this.menuFileSaveAs.Text = "Save &As..";
+            this.menuFileSaveAs.ToolTipText = "Save file As..";
             this.menuFileSaveAs.Click += new System.EventHandler(this.menuFileSaveAs_Click);
             // 
             // menuFileClose
             // 
             this.menuFileClose.Image = global::BasicTextEditor.Properties.Resources.Roundicons_100_Free_Solid_Confirm_notification;
             this.menuFileClose.Name = "menuFileClose";
-            this.menuFileClose.Size = new System.Drawing.Size(172, 22);
+            this.menuFileClose.Size = new System.Drawing.Size(180, 22);
             this.menuFileClose.Text = "Close";
+            this.menuFileClose.ToolTipText = "Close the window";
             this.menuFileClose.Click += new System.EventHandler(this.menuFileClose_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(169, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
             // 
             // menuFileExit
             // 
             this.menuFileExit.Image = global::BasicTextEditor.Properties.Resources.Icons8_Ios7_User_Interface_Exit;
             this.menuFileExit.Name = "menuFileExit";
             this.menuFileExit.ShortcutKeyDisplayString = "";
-            this.menuFileExit.Size = new System.Drawing.Size(172, 22);
+            this.menuFileExit.Size = new System.Drawing.Size(180, 22);
             this.menuFileExit.Text = "E&xit";
+            this.menuFileExit.ToolTipText = "Exit this application";
             this.menuFileExit.Click += new System.EventHandler(this.menuFileExit_Click);
             // 
             // menuEdit
@@ -169,10 +177,12 @@ namespace BasicTextEditor
             this.menuEditCut,
             this.menuEditPaste,
             this.toolStripSeparator2,
-            this.menuEditFont});
+            this.menuEditFont,
+            this.menuEditSelectAll});
             this.menuEdit.Name = "menuEdit";
             this.menuEdit.Size = new System.Drawing.Size(50, 22);
             this.menuEdit.Text = "&Edit";
+            this.menuEdit.ToolTipText = "Edit options menu";
             // 
             // menuEditCopy
             // 
@@ -182,6 +192,7 @@ namespace BasicTextEditor
             this.menuEditCopy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
             this.menuEditCopy.Size = new System.Drawing.Size(205, 22);
             this.menuEditCopy.Text = "&Copy";
+            this.menuEditCopy.ToolTipText = "Copy";
             this.menuEditCopy.Click += new System.EventHandler(this.menuEditCopy_Click);
             // 
             // menuEditCut
@@ -191,6 +202,7 @@ namespace BasicTextEditor
             this.menuEditCut.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
             this.menuEditCut.Size = new System.Drawing.Size(205, 22);
             this.menuEditCut.Text = "Cu&t";
+            this.menuEditCut.ToolTipText = "Cut";
             this.menuEditCut.Click += new System.EventHandler(this.menuEditCut_Click);
             // 
             // menuEditPaste
@@ -200,6 +212,7 @@ namespace BasicTextEditor
             this.menuEditPaste.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
             this.menuEditPaste.Size = new System.Drawing.Size(205, 22);
             this.menuEditPaste.Text = "&Paste";
+            this.menuEditPaste.ToolTipText = "Paste";
             this.menuEditPaste.Click += new System.EventHandler(this.menuEditPaste_Click);
             // 
             // toolStripSeparator2
@@ -215,6 +228,7 @@ namespace BasicTextEditor
             | System.Windows.Forms.Keys.F)));
             this.menuEditFont.Size = new System.Drawing.Size(205, 22);
             this.menuEditFont.Text = "Font";
+            this.menuEditFont.ToolTipText = "Open font menu";
             this.menuEditFont.Click += new System.EventHandler(this.menuEditFont_Change);
             // 
             // menuHelp
@@ -224,13 +238,15 @@ namespace BasicTextEditor
             this.menuHelp.Name = "menuHelp";
             this.menuHelp.Size = new System.Drawing.Size(57, 22);
             this.menuHelp.Text = "&Help";
+            this.menuHelp.ToolTipText = "Help options menu";
             // 
             // menuHelpAbout
             // 
             this.menuHelpAbout.Image = global::BasicTextEditor.Properties.Resources.Icons8_Ios7_Very_Basic_Help_Filled;
             this.menuHelpAbout.Name = "menuHelpAbout";
-            this.menuHelpAbout.Size = new System.Drawing.Size(121, 22);
+            this.menuHelpAbout.Size = new System.Drawing.Size(180, 22);
             this.menuHelpAbout.Text = "&About";
+            this.menuHelpAbout.ToolTipText = "About this application";
             this.menuHelpAbout.Click += new System.EventHandler(this.menuHelpAbout_Click);
             // 
             // fontDialog1
@@ -241,6 +257,15 @@ namespace BasicTextEditor
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // menuEditSelectAll
+            // 
+            this.menuEditSelectAll.Name = "menuEditSelectAll";
+            this.menuEditSelectAll.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.menuEditSelectAll.Size = new System.Drawing.Size(205, 22);
+            this.menuEditSelectAll.Text = "Select All";
+            this.menuEditSelectAll.ToolTipText = "Select All";
+            this.menuEditSelectAll.Click += new System.EventHandler(this.menuEditSelectAll_Click);
             // 
             // frmBasicTextEditor
             // 
@@ -296,6 +321,7 @@ namespace BasicTextEditor
         private System.Windows.Forms.ToolStripMenuItem menuFileClose;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripMenuItem menuEditSelectAll;
     }
 }
 
