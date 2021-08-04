@@ -58,7 +58,7 @@ namespace ContactTracer
                 if (isFormEntryValid())
                 {
                     //Add if contact doesn't exist
-                    if ((GetContactfromid(ContactList,add.Id)))
+                    if (GetContactfromid(ContactList,add.Id))
                     {
                         add.ContactStatus = chkContacted.Checked;
                         add.FirstName = txbFirstName.Text.Trim();

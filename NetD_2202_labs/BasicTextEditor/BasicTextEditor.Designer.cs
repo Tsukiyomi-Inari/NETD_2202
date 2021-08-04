@@ -68,7 +68,7 @@ namespace BasicTextEditor
             this.rtbTextEntry.TabIndex = 0;
             this.rtbTextEntry.Text = "";
             this.toolTip1.SetToolTip(this.rtbTextEntry, "Text Editor input space.");
-            this.rtbTextEntry.TextChanged += new System.EventHandler(this.rbtTextEntry_Changed);
+            this.rtbTextEntry.ModifiedChanged += new System.EventHandler(this.rbtTextEntry_Changed);
             // 
             // menuStrip1
             // 

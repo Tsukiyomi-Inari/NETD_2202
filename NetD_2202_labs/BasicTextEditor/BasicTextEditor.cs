@@ -99,31 +99,24 @@ namespace BasicTextEditor
 
 /////============OPEN/NEW/SAVE/SAVE-AS/CLOSE/EXIT================/////////
         /// <summary>
-        ///
+        ///Opens file dialog box launches to load a file into rich text box
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void menuFileOpen_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
             
-
-            if(openFileDialog1.ShowDialog() == DialogResult.OK) 
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                rtbTextEntry.Clear();
-                
-                FileStream fileRead = new FileStream(Path.GetFullPath(openFileDialog.FileName), FileMode.Open, FileAccess.Read);
-                //StreamReader
-                StreamReader sRead = new StreamReader(fileRead);
-                //Load file
-                rtbTextEntry.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
+                FileStream fs = new FileStream(openFileDialog1.FileName, FileMode.Open, FileAccess.Read);
+                StreamReader sr = new StreamReader(fs);
+                rtbTextEntry.Text = sr.ReadToEnd();
+                sr.Close();
                
-                sRead.ReadToEnd();
-                sRead.Close();
-                fileRead.Close();
-
+                this.Text = Path.GetFileName(openFileDialog1.FileName) + " - Basic Text Editor";
+                fs.Close();
             }
-            this.Text = Path.GetFileName(openFileDialog.FileName) + " - Basic Text Editor";
+            
 
         }
         /// <summary>
@@ -216,23 +209,21 @@ namespace BasicTextEditor
         /// </summary>
         private void ConfirmClose() 
         {
-            //TODO: Finish ConfirmClose method
-            //confirm before close (When New, Open or Exit are executed)
-
-            //activates only (message box) if current open file has changed
-
-            // ignore any new and unsaved file while blank
             //if changes
             if (hasText == true)
             {
                 if (MessageBox.Show("Would you like to save the document before closing?", "Notification", MessageBoxButtons.YesNo) == DialogResult.No)
                 {
+                    hasText = false;
                     this.Close();
                 }
                 else
                 {
                     //save method call
-
+                    SaveFile(rtbTextEntry, saveFileDialog1.FileName);
+                    
+                    //reset changes tracking variable 
+                    hasText = false;
                     this.Close();
                 }
 
@@ -258,9 +249,14 @@ namespace BasicTextEditor
                 sWriter.Write(rtbTextEntry.Text);
                 sWriter.Close();
                 fsWrite.Close();
+
+                //update variable for unsaved changes
+                hasText = false;
             }
         }
 
+        
+       
 
         #endregion
 
