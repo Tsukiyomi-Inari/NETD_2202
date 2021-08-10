@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MdiFormFinal
+namespace Lab6MDI
 {
     static class Program
     {
@@ -17,7 +17,7 @@ namespace MdiFormFinal
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+            Application.Run(new frmMainParent());
         }
     }
 }

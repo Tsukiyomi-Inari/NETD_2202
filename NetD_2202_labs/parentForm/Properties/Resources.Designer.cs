@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MdiFormFinal.Properties {
+namespace MidiFormParentFinal.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace MdiFormFinal.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MdiFormFinal.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MidiFormParentFinal.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,39 +63,9 @@ namespace MdiFormFinal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cascade_visualization_option_interface_button {
-            get {
-                object obj = ResourceManager.GetObject("cascade-visualization-option-interface-button", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Custom_Icon_Design_Mini_Paste {
             get {
                 object obj = ResourceManager.GetObject("Custom-Icon-Design-Mini-Paste", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Custom_Icon_Design_Mono_General_2_Paste {
-            get {
-                object obj = ResourceManager.GetObject("Custom-Icon-Design-Mono-General-2-Paste", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap disease_prevention {
-            get {
-                object obj = ResourceManager.GetObject("disease-prevention", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,26 +83,6 @@ namespace MdiFormFinal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap epidemic_prevention {
-            get {
-                object obj = ResourceManager.GetObject("epidemic-prevention", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Icons8_Ios7_Editing_Ball_Point_Pen {
-            get {
-                object obj = ResourceManager.GetObject("Icons8-Ios7-Editing-Ball-Point-Pen", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Icons8_Ios7_Editing_Cut_Filled {
             get {
                 object obj = ResourceManager.GetObject("Icons8-Ios7-Editing-Cut-Filled", resourceCulture);
@@ -143,29 +93,9 @@ namespace MdiFormFinal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Icons8_Ios7_Editing_Decrease_Font {
-            get {
-                object obj = ResourceManager.GetObject("Icons8-Ios7-Editing-Decrease-Font", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Icons8_Ios7_Files_Txt {
             get {
                 object obj = ResourceManager.GetObject("Icons8-Ios7-Files-Txt", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Icons8_Ios7_User_Interface_Exit {
-            get {
-                object obj = ResourceManager.GetObject("Icons8-Ios7-User-Interface-Exit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,16 +123,6 @@ namespace MdiFormFinal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Icons8_Ios7_Very_Basic_Folder {
-            get {
-                object obj = ResourceManager.GetObject("Icons8-Ios7-Very-Basic-Folder", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Icons8_Ios7_Very_Basic_Help_Filled {
             get {
                 object obj = ResourceManager.GetObject("Icons8-Ios7-Very-Basic-Help-Filled", resourceCulture);
@@ -216,56 +136,6 @@ namespace MdiFormFinal.Properties {
         internal static System.Drawing.Bitmap Icons8_Ios7_Very_Basic_Opened_Folder {
             get {
                 object obj = ResourceManager.GetObject("Icons8-Ios7-Very-Basic-Opened-Folder", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Iconsmind_Outline_Save {
-            get {
-                object obj = ResourceManager.GetObject("Iconsmind-Outline-Save", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap prevention {
-            get {
-                object obj = ResourceManager.GetObject("prevention", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap prevention__1_ {
-            get {
-                object obj = ResourceManager.GetObject("prevention (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Roundicons_100_Free_Solid_Confirm_notification {
-            get {
-                object obj = ResourceManager.GetObject("Roundicons-100-Free-Solid-Confirm-notification", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap social_distancing {
-            get {
-                object obj = ResourceManager.GetObject("social-distancing", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

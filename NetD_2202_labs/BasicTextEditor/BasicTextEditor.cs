@@ -6,7 +6,7 @@
  * Description:  Main file for text editor application that users can create, open, edit and save text files (*.txt)
  *                  Functions for copy, cut , paste and exit(application) allow for them to be used within the                          application.
  * 
- * Edit Date: August 4th  2021
+ * Edit Date: August 5th  2021
  */
 
 
@@ -102,7 +102,7 @@ namespace BasicTextEditor
                         
         }
         /// <summary>
-        /// S
+        /// Selects all text
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -167,7 +167,7 @@ namespace BasicTextEditor
         private void menuFileSave_Click(object sender, EventArgs e)
         {
 
-            // does the file alredy exhist in open directory
+            // does the file already exist in open directory
 
 
                 //Use the save method to save the current progress of opened file
